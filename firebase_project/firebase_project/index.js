@@ -71,6 +71,10 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.get("/juego", (req, res) => {
+  res.render("juego");
+});
+
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -95,3 +99,5 @@ app.get("/dashboard", (req, res) => {
 });
 
 /************************************** */
+
+
