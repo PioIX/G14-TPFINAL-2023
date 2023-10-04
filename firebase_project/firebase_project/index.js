@@ -55,7 +55,7 @@ app.post("/register", async (req, res) => {
   const { usuario, password } = req.body;
 
   try {
-    await authService.registerUser(auth, { usuario, password });
+    await authService.registerUser(auth, { email, password });
     res.render("register", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
     });
@@ -76,11 +76,11 @@ app.get("/juego", (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const { usuario, password } = req.body;
+  const { email, password } = req.body;
 
   try {
     const userCredential = await authService.loginUser(auth, {
-      usuario,
+      email,
       password,
     });
     // Aquí puedes redirigir al usuario a la página que desees después del inicio de sesión exitoso
