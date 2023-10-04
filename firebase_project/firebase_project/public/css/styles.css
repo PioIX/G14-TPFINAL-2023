@@ -16,5 +16,6 @@ body {
   background-color: #fff;
 }
 
-.home {
+h1 {
+  text-align: center;
 }

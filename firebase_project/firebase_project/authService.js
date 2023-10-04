@@ -6,11 +6,11 @@ const {
 } = require("firebase/auth");
 
 // Función para registrar un usuario
-const registerUser = async (auth, { email, password }) => {
+const registerUser = async (auth, { usuario, password }) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
-      email,
+      usuario,
       password
     );
     await sendEmailVerification(auth.currentUser);
@@ -21,11 +21,11 @@ const registerUser = async (auth, { email, password }) => {
   }
 };
 
-const loginUser = async (auth, { email, password }) => {
+const loginUser = async (auth, { usuario, password }) => {
   try {
     const userCredential = await signInWithEmailAndPassword(
       auth,
-      email,
+      usuario,
       password
     );
 
@@ -35,7 +35,7 @@ const loginUser = async (auth, { email, password }) => {
       );
     }
 
-    console.log("Inicio de sesión exitoso para el usuario:", email);
+    console.log("Inicio de sesión exitoso para el usuario:", usuario);
     return userCredential;
   } catch (error) {
     console.error("Error en el inicio de sesión:", error);
