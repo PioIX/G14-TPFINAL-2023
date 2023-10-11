@@ -1,8 +1,8 @@
 <!-- login.handlebars -->
 <h1>Iniciar sesión</h1>
-<form action="/login" method="post">
-  <input type="usuario" name="usuario" placeholder="Usuario" required />
-  <input type="password" name="password" placeholder="Contraseña" required />
-  <button type="submit">Iniciar sesión</button>
+<form action="/login" method="PUT" id="form1" class="container-sm">
+  <input type="usuario" id="usuarioId" name="usuario" placeholder="Usuario" required />
+  <input type="password" id="passwordId" name="password" placeholder="Contraseña" required />
+  <button type="button" onclick="login()">Iniciar sesión</button>
 </form>
 <div>{{message}}</div>
