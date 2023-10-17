@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Batalla Naval</title>
     <style>
-        .h2juego {
-
-        }
-        table {
+        .table2 {
             border-collapse: collapse;
-            width: 50%;
+            width: 85%;
             margin: 0 auto;
-            margin-left: 700px;
-            margin-top: 100px;
+            margin-right: 30px;
+            margin-top: 30px;
+        }
+        .table1 {
+            border-collapse: collapse;
+            margin-left: 30px;
+            width: 85%;
+            margin-top: 30px;
         }
         th, td {
             border: 1px solid black;
@@ -28,8 +31,32 @@
         .h1juego {
             text-align: center;
             margin-top: 20px;
-            margin-bottom: 50px ;
-            
+            margin-bottom: 20px ;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .h2propio{
+            background:#4dcbcf; 
+            color:rgb(0, 0, 0); 
+            font-weight:bold; 
+            padding:8px; 
+            border:3px solid #000000; 
+            margin-top:20px; 
+            margin-bottom:20px; 
+            text-align:center; 
+            font-size:22px; 
+            border-radius:6px;
+        }
+        .h2rival{
+            background:#e90a0a; 
+            color:rgb(0, 0, 0); 
+            font-weight:bold; 
+            padding:8px; 
+            border:3px solid #000000; 
+            margin-top:20px; 
+            margin-bottom:20px; 
+            text-align:center; 
+            font-size:22px; 
+            border-radius:6px;
         }
         .body {
             background-image: url("https://img1.wallspic.com/crops/2/2/8/9/39822/39822-el_agua_de_mar-1920x1080.jpg");
@@ -38,8 +65,11 @@
 </head>
 <body class="body">
     <h1 class="h1juego">Batalla Naval</h1>
-    <h2 class="h2juego"></h2>
-    <table>
+    <div class="container">
+    <div class="row">
+    <div class="col">
+        <h2 class="h2propio">Tus Barcos</h2>
+    <table class="table1">
         <tr>
             <th></th>
             <th>A</th>
@@ -55,135 +85,286 @@
         </tr>
         <tr>
             <th>1</th>
-            <td id="A1" onclick="casilla(this)"></td>
-            <td id="B1" onclick="casilla(this)"></td>
-            <td id="C1" onclick="casilla(this)"></td>
-            <td id="D1" onclick="casilla(this)"></td>
-            <td id="E1" onclick="casilla(this)"></td>
-            <td id="F1" onclick="casilla(this)"></td>
-            <td id="G1" onclick="casilla(this)"></td>
-            <td id="H1" onclick="casilla(this)"></td>
-            <td id="I1" onclick="casilla(this)"></td>
-            <td id="J1" onclick="casilla(this)"></td>
+            <td id="A1P" onclick="casilla(this)"></td>
+            <td id="B1P" onclick="casilla(this)"></td>
+            <td id="C1P" onclick="casilla(this)"></td>
+            <td id="D1P" onclick="casilla(this)"></td>
+            <td id="E1P" onclick="casilla(this)"></td>
+            <td id="F1P" onclick="casilla(this)"></td>
+            <td id="G1P" onclick="casilla(this)"></td>
+            <td id="H1P" onclick="casilla(this)"></td>
+            <td id="I1P" onclick="casilla(this)"></td>
+            <td id="J1P" onclick="casilla(this)"></td>
         </tr>
         <tr>
             <th>2</th>
-            <td id="A2" onclick="casilla(this)"></td>
-            <td id="B2" onclick="casilla(this)"></td>
-            <td id="C2" onclick="casilla(this)"></td>
-            <td id="D2" onclick="casilla(this)"></td>
-            <td id="E2" onclick="casilla(this)"></td>
-            <td id="F2" onclick="casilla(this)"></td>
-            <td id="G2" onclick="casilla(this)"></td>
-            <td id="H2" onclick="casilla(this)"></td>
-            <td id="I2" onclick="casilla(this)"></td>
-            <td id="J2" onclick="casilla(this)"></td>
+            <td id="A2P" onclick="casilla(this)"></td>
+            <td id="B2P" onclick="casilla(this)"></td>
+            <td id="C2P" onclick="casilla(this)"></td>
+            <td id="D2P" onclick="casilla(this)"></td>
+            <td id="E2P" onclick="casilla(this)"></td>
+            <td id="F2P" onclick="casilla(this)"></td>
+            <td id="G2P" onclick="casilla(this)"></td>
+            <td id="H2P" onclick="casilla(this)"></td>
+            <td id="I2P" onclick="casilla(this)"></td>
+            <td id="J2P" onclick="casilla(this)"></td>
         </tr>
         <tr>
             <th>3</th>
-            <td id="A3" onclick="casilla(this)"></td>
-            <td id="B3" onclick="casilla(this)"></td>
-            <td id="C3" onclick="casilla(this)"></td>
-            <td id="D3" onclick="casilla(this)"></td>
-            <td id="E3" onclick="casilla(this)"></td>
-            <td id="F3" onclick="casilla(this)"></td>
-            <td id="G3" onclick="casilla(this)"></td>
-            <td id="H3" onclick="casilla(this)"></td>
-            <td id="I3" onclick="casilla(this)"></td>
-            <td id="J3" onclick="casilla(this)"></td>
+            <td id="A3P" onclick="casilla(this)"></td>
+            <td id="B3P" onclick="casilla(this)"></td>
+            <td id="C3P" onclick="casilla(this)"></td>
+            <td id="D3P" onclick="casilla(this)"></td>
+            <td id="E3P" onclick="casilla(this)"></td>
+            <td id="F3P" onclick="casilla(this)"></td>
+            <td id="G3P" onclick="casilla(this)"></td>
+            <td id="H3P" onclick="casilla(this)"></td>
+            <td id="I3P" onclick="casilla(this)"></td>
+            <td id="J3P" onclick="casilla(this)"></td>
         </tr>
         <tr>
             <th>4</th>
-            <td id="A4" onclick="casilla(this)"></td>
-            <td id="B4" onclick="casilla(this)"></td>
-            <td id="C4" onclick="casilla(this)"></td>
-            <td id="D4" onclick="casilla(this)"></td>
-            <td id="E4" onclick="casilla(this)"></td>
-            <td id="F4" onclick="casilla(this)"></td>
-            <td id="G4" onclick="casilla(this)"></td>
-            <td id="H4" onclick="casilla(this)"></td>
-            <td id="I4" onclick="casilla(this)"></td>
-            <td id="J4" onclick="casilla(this)"></td>
+            <td id="A4P" onclick="casilla(this)"></td>
+            <td id="B4P" onclick="casilla(this)"></td>
+            <td id="C4P" onclick="casilla(this)"></td>
+            <td id="D4P" onclick="casilla(this)"></td>
+            <td id="E4P" onclick="casilla(this)"></td>
+            <td id="F4P" onclick="casilla(this)"></td>
+            <td id="G4P" onclick="casilla(this)"></td>
+            <td id="H4P" onclick="casilla(this)"></td>
+            <td id="I4P" onclick="casilla(this)"></td>
+            <td id="J4P" onclick="casilla(this)"></td>
         </tr>
         <tr>
             <th>5</th>
-            <td id="A5" onclick="casilla(this)"></td>
-            <td id="B5" onclick="casilla(this)"></td>
-            <td id="C5" onclick="casilla(this)"></td>
-            <td id="D5" onclick="casilla(this)"></td>
-            <td id="E5" onclick="casilla(this)"></td>
-            <td id="F5" onclick="casilla(this)"></td>
-            <td id="G5" onclick="casilla(this)"></td>
-            <td id="H5" onclick="casilla(this)"></td>
-            <td id="I5" onclick="casilla(this)"></td>
-            <td id="J5" onclick="casilla(this)"></td>
+            <td id="A5P" onclick="casilla(this)"></td>
+            <td id="B5P" onclick="casilla(this)"></td>
+            <td id="C5P" onclick="casilla(this)"></td>
+            <td id="D5P" onclick="casilla(this)"></td>
+            <td id="E5P" onclick="casilla(this)"></td>
+            <td id="F5P" onclick="casilla(this)"></td>
+            <td id="G5P" onclick="casilla(this)"></td>
+            <td id="H5P" onclick="casilla(this)"></td>
+            <td id="I5P" onclick="casilla(this)"></td>
+            <td id="J5P" onclick="casilla(this)"></td>
         </tr>
         <tr>
             <th>6</th>
-            <td id="A6" onclick="casilla(this)"></td>
-            <td id="B6" onclick="casilla(this)"></td>
-            <td id="C6" onclick="casilla(this)"></td>
-            <td id="D6" onclick="casilla(this)"></td>
-            <td id="E6" onclick="casilla(this)"></td>
-            <td id="F6" onclick="casilla(this)"></td>
-            <td id="G6" onclick="casilla(this)"></td>
-            <td id="H6" onclick="casilla(this)"></td>
-            <td id="I6" onclick="casilla(this)"></td>
-            <td id="J6" onclick="casilla(this)"></td>
+            <td id="A6P" onclick="casilla(this)"></td>
+            <td id="B6P" onclick="casilla(this)"></td>
+            <td id="C6P" onclick="casilla(this)"></td>
+            <td id="D6P" onclick="casilla(this)"></td>
+            <td id="E6P" onclick="casilla(this)"></td>
+            <td id="F6P" onclick="casilla(this)"></td>
+            <td id="G6P" onclick="casilla(this)"></td>
+            <td id="H6P" onclick="casilla(this)"></td>
+            <td id="I6P" onclick="casilla(this)"></td>
+            <td id="J6P" onclick="casilla(this)"></td>
         </tr>
         <tr>
             <th>7</th>
-            <td id="A7" onclick="casilla(this)"></td>
-            <td id="B7" onclick="casilla(this)"></td>
-            <td id="C7" onclick="casilla(this)"></td>
-            <td id="D7" onclick="casilla(this)"></td>
-            <td id="E7" onclick="casilla(this)"></td>
-            <td id="F7" onclick="casilla(this)"></td>
-            <td id="G7" onclick="casilla(this)"></td>
-            <td id="H7" onclick="casilla(this)"></td>
-            <td id="I7" onclick="casilla(this)"></td>
-            <td id="J7" onclick="casilla(this)"></td>
+            <td id="A7P" onclick="casilla(this)"></td>
+            <td id="B7P" onclick="casilla(this)"></td>
+            <td id="C7P" onclick="casilla(this)"></td>
+            <td id="D7P" onclick="casilla(this)"></td>
+            <td id="E7P" onclick="casilla(this)"></td>
+            <td id="F7P" onclick="casilla(this)"></td>
+            <td id="G7P" onclick="casilla(this)"></td>
+            <td id="H7P" onclick="casilla(this)"></td>
+            <td id="I7P" onclick="casilla(this)"></td>
+            <td id="J7P" onclick="casilla(this)"></td>
         </tr>
         <tr>
             <th>8</th>
-            <td id="A8" onclick="casilla(this)"></td>
-            <td id="B8" onclick="casilla(this)"></td>
-            <td id="C8" onclick="casilla(this)"></td>
-            <td id="D8" onclick="casilla(this)"></td>
-            <td id="E8" onclick="casilla(this)"></td>
-            <td id="F8" onclick="casilla(this)"></td>
-            <td id="G8" onclick="casilla(this)"></td>
-            <td id="H8" onclick="casilla(this)"></td>
-            <td id="I8" onclick="casilla(this)"></td>
-            <td id="J8" onclick="casilla(this)"></td>
+            <td id="A8P" onclick="casilla(this)"></td>
+            <td id="B8P" onclick="casilla(this)"></td>
+            <td id="C8P" onclick="casilla(this)"></td>
+            <td id="D8P" onclick="casilla(this)"></td>
+            <td id="E8P" onclick="casilla(this)"></td>
+            <td id="F8P" onclick="casilla(this)"></td>
+            <td id="G8P" onclick="casilla(this)"></td>
+            <td id="H8P" onclick="casilla(this)"></td>
+            <td id="I8P" onclick="casilla(this)"></td>
+            <td id="J8P" onclick="casilla(this)"></td>
         </tr>
         <tr>
             <th>9</th>
-            <td id="A9" onclick="casilla(this)"></td>
-            <td id="B9" onclick="casilla(this)"></td>
-            <td id="C9" onclick="casilla(this)"></td>
-            <td id="D9" onclick="casilla(this)"></td>
-            <td id="E9" onclick="casilla(this)"></td>
-            <td id="F9" onclick="casilla(this)"></td>
-            <td id="G9" onclick="casilla(this)"></td>
-            <td id="H9" onclick="casilla(this)"></td>
-            <td id="I9" onclick="casilla(this)"></td>
-            <td id="J9" onclick="casilla(this)"></td>
+            <td id="A9P" onclick="casilla(this)"></td>
+            <td id="B9P" onclick="casilla(this)"></td>
+            <td id="C9P" onclick="casilla(this)"></td>
+            <td id="D9P" onclick="casilla(this)"></td>
+            <td id="E9P" onclick="casilla(this)"></td>
+            <td id="F9P" onclick="casilla(this)"></td>
+            <td id="G9P" onclick="casilla(this)"></td>
+            <td id="H9P" onclick="casilla(this)"></td>
+            <td id="I9P" onclick="casilla(this)"></td>
+            <td id="J9P" onclick="casilla(this)"></td>
         </tr>
         <tr>
             <th>10</th>
-            <td id="A10" onclick="casilla(this)"></td>
-            <td id="B10" onclick="casilla(this)"></td>
-            <td id="C10" onclick="casilla(this)"></td>
-            <td id="D10" onclick="casilla(this)"></td>
-            <td id="E10" onclick="casilla(this)"></td>
-            <td id="F10" onclick="casilla(this)"></td>
-            <td id="G10" onclick="casilla(this)"></td>
-            <td id="H10" onclick="casilla(this)"></td>
-            <td id="I10" onclick="casilla(this)"></td>
-            <td id="J10" onclick="casilla(this)"></td>
+            <td id="A10P" onclick="casilla(this)"></td>
+            <td id="B10P" onclick="casilla(this)"></td>
+            <td id="C10P" onclick="casilla(this)"></td>
+            <td id="D10P" onclick="casilla(this)"></td>
+            <td id="E10P" onclick="casilla(this)"></td>
+            <td id="F10P" onclick="casilla(this)"></td>
+            <td id="G10P" onclick="casilla(this)"></td>
+            <td id="H10P" onclick="casilla(this)"></td>
+            <td id="I10P" onclick="casilla(this)"></td>
+            <td id="J10P" onclick="casilla(this)"></td>
         </tr>
     </table>
+    </div>
+    <div class="col">
+         <h2 class="h2rival">Rival</h2>
+    <table class="table2">
+        <tr>
+            <th></th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+            <th>E</th>
+            <th>F</th>
+            <th>G</th>
+            <th>H</th>
+            <th>I</th>
+            <th>J</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <td id="A1R" onclick="casilla(this)"></td>
+            <td id="B1R" onclick="casilla(this)"></td>
+            <td id="C1R" onclick="casilla(this)"></td>
+            <td id="D1R" onclick="casilla(this)"></td>
+            <td id="E1R" onclick="casilla(this)"></td>
+            <td id="F1R" onclick="casilla(this)"></td>
+            <td id="G1R" onclick="casilla(this)"></td>
+            <td id="H1R" onclick="casilla(this)"></td>
+            <td id="I1R" onclick="casilla(this)"></td>
+            <td id="J1R" onclick="casilla(this)"></td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td id="A2R" onclick="casilla(this)"></td>
+            <td id="B2R" onclick="casilla(this)"></td>
+            <td id="C2R" onclick="casilla(this)"></td>
+            <td id="D2R" onclick="casilla(this)"></td>
+            <td id="E2R" onclick="casilla(this)"></td>
+            <td id="F2R" onclick="casilla(this)"></td>
+            <td id="G2R" onclick="casilla(this)"></td>
+            <td id="H2R" onclick="casilla(this)"></td>
+            <td id="I2R" onclick="casilla(this)"></td>
+            <td id="J2R" onclick="casilla(this)"></td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td id="A3R" onclick="casilla(this)"></td>
+            <td id="B3R" onclick="casilla(this)"></td>
+            <td id="C3R" onclick="casilla(this)"></td>
+            <td id="D3R" onclick="casilla(this)"></td>
+            <td id="E3R" onclick="casilla(this)"></td>
+            <td id="F3R" onclick="casilla(this)"></td>
+            <td id="G3R" onclick="casilla(this)"></td>
+            <td id="H3R" onclick="casilla(this)"></td>
+            <td id="I3R" onclick="casilla(this)"></td>
+            <td id="J3R" onclick="casilla(this)"></td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td id="A4R" onclick="casilla(this)"></td>
+            <td id="B4R" onclick="casilla(this)"></td>
+            <td id="C4R" onclick="casilla(this)"></td>
+            <td id="D4R" onclick="casilla(this)"></td>
+            <td id="E4R" onclick="casilla(this)"></td>
+            <td id="F4R" onclick="casilla(this)"></td>
+            <td id="G4R" onclick="casilla(this)"></td>
+            <td id="H4R" onclick="casilla(this)"></td>
+            <td id="I4R" onclick="casilla(this)"></td>
+            <td id="J4R" onclick="casilla(this)"></td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td id="A5R" onclick="casilla(this)"></td>
+            <td id="B5R" onclick="casilla(this)"></td>
+            <td id="C5R" onclick="casilla(this)"></td>
+            <td id="D5R" onclick="casilla(this)"></td>
+            <td id="E5R" onclick="casilla(this)"></td>
+            <td id="F5R" onclick="casilla(this)"></td>
+            <td id="G5R" onclick="casilla(this)"></td>
+            <td id="H5R" onclick="casilla(this)"></td>
+            <td id="I5R" onclick="casilla(this)"></td>
+            <td id="J5R" onclick="casilla(this)"></td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td id="A6R" onclick="casilla(this)"></td>
+            <td id="B6R" onclick="casilla(this)"></td>
+            <td id="C6R" onclick="casilla(this)"></td>
+            <td id="D6R" onclick="casilla(this)"></td>
+            <td id="E6R" onclick="casilla(this)"></td>
+            <td id="F6R" onclick="casilla(this)"></td>
+            <td id="G6R" onclick="casilla(this)"></td>
+            <td id="H6R" onclick="casilla(this)"></td>
+            <td id="I6R" onclick="casilla(this)"></td>
+            <td id="J6R" onclick="casilla(this)"></td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td id="A7R" onclick="casilla(this)"></td>
+            <td id="B7R" onclick="casilla(this)"></td>
+            <td id="C7R" onclick="casilla(this)"></td>
+            <td id="D7R" onclick="casilla(this)"></td>
+            <td id="E7R" onclick="casilla(this)"></td>
+            <td id="F7R" onclick="casilla(this)"></td>
+            <td id="G7R" onclick="casilla(this)"></td>
+            <td id="H7R" onclick="casilla(this)"></td>
+            <td id="I7R" onclick="casilla(this)"></td>
+            <td id="J7R" onclick="casilla(this)"></td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td id="A8R" onclick="casilla(this)"></td>
+            <td id="B8R" onclick="casilla(this)"></td>
+            <td id="C8R" onclick="casilla(this)"></td>
+            <td id="D8R" onclick="casilla(this)"></td>
+            <td id="E8R" onclick="casilla(this)"></td>
+            <td id="F8R" onclick="casilla(this)"></td>
+            <td id="G8R" onclick="casilla(this)"></td>
+            <td id="H8R" onclick="casilla(this)"></td>
+            <td id="I8R" onclick="casilla(this)"></td>
+            <td id="J8R" onclick="casilla(this)"></td>
+        </tr>
+        <tr>
+            <th>9</th>
+            <td id="A9R" onclick="casilla(this)"></td>
+            <td id="B9R" onclick="casilla(this)"></td>
+            <td id="C9R" onclick="casilla(this)"></td>
+            <td id="D9R" onclick="casilla(this)"></td>
+            <td id="E9R" onclick="casilla(this)"></td>
+            <td id="F9R" onclick="casilla(this)"></td>
+            <td id="G9R" onclick="casilla(this)"></td>
+            <td id="H9R" onclick="casilla(this)"></td>
+            <td id="I9R" onclick="casilla(this)"></td>
+            <td id="J9R" onclick="casilla(this)"></td>
+        </tr>
+        <tr>
+            <th>10</th>
+            <td id="A10R" onclick="casilla(this)"></td>
+            <td id="B10R" onclick="casilla(this)"></td>
+            <td id="C10R" onclick="casilla(this)"></td>
+            <td id="D10R" onclick="casilla(this)"></td>
+            <td id="E10R" onclick="casilla(this)"></td>
+            <td id="F10R" onclick="casilla(this)"></td>
+            <td id="G10R" onclick="casilla(this)"></td>
+            <td id="H10R" onclick="casilla(this)"></td>
+            <td id="I10R" onclick="casilla(this)"></td>
+            <td id="J10R" onclick="casilla(this)"></td>
+        </tr>
+    </table>
+    </div>
+    </div>
+    </div>
 </body>
 </html>
 </section>
