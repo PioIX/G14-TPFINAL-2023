@@ -1,10 +1,13 @@
 <!-- login.handlebars -->
-<div id="login">
-  <h1>Iniciar sesión</h1>
-  <form action="/login" method="post">
-    <input type="email" name="email" class="typelogin" placeholder="Usuario" required />
-    <input type="password" name="password" class="typelogin" placeholder="Contraseña" required />
-    <button type="submit" class ="buttonlogin">Iniciar sesión</button>
-  </form>
-  <div>{{message}}</div>
-</div>
+<section>
+  <body class="body2">
+    <h1 class="h1base">Iniciar sesión</h1>
+    <form action="/login" method="PUT" id="form1" class="container-sm">
+      <input type="usuario" id="usuarioId" name="usuario" placeholder="Usuario" required />
+      <input type="password" id="passwordId" name="password" placeholder="Contraseña" required />
+      <button type="button" onclick="login()">Iniciar sesión</button>
+    </form>
+    <div>{{message}}</div>
+
+  </body>
+</section>
