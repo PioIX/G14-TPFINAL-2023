@@ -71,8 +71,16 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/juego", (req, res) => {
-  res.render("juego");
+app.get("/ataquejuego", (req, res) => {
+  res.render("ataquejuego");
+});
+
+app.get("/preparacionjuego", (req, res) => {
+  res.render("preparacionjuego");
+});
+
+app.get("/home", (req, res) => {
+  res.render("home");
 });
 
 app.get("/admin", (req, res) => {
