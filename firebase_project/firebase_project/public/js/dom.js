@@ -2,6 +2,10 @@ function casilla(posicion) {
     console.log(posicion)
 }
 
+function imagen(posicion) {
+  console.log(posicion)
+}
+
 
 
 function changeScreenadmin() {

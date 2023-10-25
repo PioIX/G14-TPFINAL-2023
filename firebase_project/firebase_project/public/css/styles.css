@@ -15,7 +15,8 @@ body {
   margin: 0;
   background-image: url("https://img1.wallspic.com/crops/2/2/8/9/39822/39822-el_agua_de_mar-1920x1080.jpg");
 }
-
+<<<<<<< juego-manuel
+=======
 #login {
   text-align: center;
   background-color: rgb(255, 255, 255);
@@ -32,9 +33,11 @@ body {
   height: 400px;
 }
 
+>>>>>>> main
 .body2 { 
   background-image: url("https://cdna.artstation.com/p/assets/images/images/018/484/808/large/anton-martinez-sayanes-de-cominges-proceso-escena-28-5.jpg?1559571364")
 }
+
 .h1base {
   text-align: center;
   margin-top: 80px;
@@ -48,4 +51,26 @@ body {
   background-color: aqua;
   margin-top: 200px;
   margin-left: 600px;
+}
+
+
+.imagen1 {
+  width: 20%;
+  margin-left: 60px;
+ 
+}
+
+.h21 {
+  text-align: left; 
+  font-family: Comic Sans MS; 
+  font-weight:bold; 
+  font-size: 30px; 
+  color: #fad906; 
+  text-shadow: -1px 0 #414D68, 0 1px #414D68, 1px 0 #414D68, 0 -1px #414D68, -2px 2px 0 #414D68, 2px 2px 0 #414D68, 1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 4px 4px #414D68, 5px 5px #414D68, 6px 6px #414D68, 7px 7px #414D68, 8px 8px #414D68, 9px 9px #414D68;
+  background: #b8a607;
+  padding:8px; 
+  border:3px solid #000000; 
+  text-align:center;  
+  border-radius:6px;
+  margin-top: 30px;
 }
