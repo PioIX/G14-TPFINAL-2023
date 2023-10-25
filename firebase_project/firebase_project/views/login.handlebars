@@ -1,13 +1,19 @@
 <!-- login.handlebars -->
 
 <section>
-  <body class "body2" id="login">
+  <body id="login">
     <div class="container">
-      <h1 class="h1base">Iniciar sesión</h1>
+      <h1>Iniciar sesión</h1>
       <form action="/login" method="PUT" id="form1" class="container-sm">
-        <input type="usuario" id="usuarioId" name="usuario" class="typelogin" placeholder="Usuario" required />
-        <input type="password" id="passwordId" name="password" class="typelogin"placeholder="Contraseña" required />
-        <button type="button" class="buttonlogin" onclick="login()">Iniciar sesión</button>
+        <div class="username">
+            <input type="text" required>
+            <label>Mail</label>
+        </div>
+        <div class="contraseña">
+            <input type="text" required>
+            <label>Contraseña</label>
+        </div>
+        <button type="submit" value="Iniciar sesion" class="typelogin">Iniciar sesion</button>
       </form>
       <div>{{message}}</div>
     </div>
