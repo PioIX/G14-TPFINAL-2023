@@ -15,25 +15,67 @@ body {
   margin: 0;
   background-image: url("https://img1.wallspic.com/crops/2/2/8/9/39822/39822-el_agua_de_mar-1920x1080.jpg");
 }
-<<<<<<< juego-manuel
-=======
-#login {
-  text-align: center;
-  background-color: rgb(255, 255, 255);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 200px;
-  text-align: center;
-  border-style: solid;
-  border-radius: 25px;
-  border-color:rgb(69, 82, 68);
-  font-size: 40px;
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 400px;
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background:white;
+  border-radius: 10px;
 }
 
->>>>>>> main
+
+
+.typelogin{
+  border-radius: 10px;
+  font-size: 25px;
+}
+
+.buttonlogin {
+  align-items: center;
+  background-color: rgba(240, 240, 240, 0.26);
+  border: 1px solid #DFDFDF;
+  border-radius: 16px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  justify-content: center;
+  line-height: 28px;
+  max-width: 100%;
+  padding: 10px 15px;
+  text-decoration: none;
+  transition: all .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.buttonlogin:active,
+.buttonlogin:hover {
+  outline: 0;
+}
+
+.buttonlogin:hover {
+  background-color: #FFFFFF;
+  border-color: rgba(0, 0, 0, 0.19);
+}
+
+@media (min-width: 768px) {
+  .buttonlogin {
+    font-size: 20px;
+    min-width: 200px;
+    padding: 14px 16px;
+  }
+}
+
+
 .body2 { 
   background-image: url("https://cdna.artstation.com/p/assets/images/images/018/484/808/large/anton-martinez-sayanes-de-cominges-proceso-escena-28-5.jpg?1559571364")
 }
