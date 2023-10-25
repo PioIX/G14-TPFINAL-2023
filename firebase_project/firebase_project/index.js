@@ -29,13 +29,14 @@ app.listen(Listen_Port, function () {
 
 // Configuración de Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyA936j4rOJbIGAiPMENWJAMbIAeCULI8J8",
-  authDomain: "infothebest-3b261.firebaseapp.com",
-  projectId: "infothebest-3b261",
-  storageBucket: "infothebest-3b261.appspot.com",
-  messagingSenderId: "125429100089",
-  appId: "1:125429100089:web:707f20f776e39a3d8367e8",
+  apiKey: "AIzaSyApI_TubvxE70LUFPAqDZMQi2qzFMy5ROE",
+  authDomain: "proyecto-final-g14.firebaseapp.com",
+  projectId: "proyecto-final-g14",
+  storageBucket: "proyecto-final-g14.appspot.com",
+  messagingSenderId: "874261857872",
+  appId: "1:874261857872:web:35b89f6eff1f1bd313f355"
 };
+
 
 const appFirebase = initializeApp(firebaseConfig);
 const auth = getAuth(appFirebase);
