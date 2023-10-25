@@ -52,7 +52,7 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/register", async (req, res) => {
-  const { email, password } = req.body;
+  const { usuario, password } = req.body;
 
   try {
     await authService.registerUser(auth, { email, password });
