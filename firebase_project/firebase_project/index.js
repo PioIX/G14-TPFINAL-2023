@@ -71,11 +71,11 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/ataquejuego", (req, res) => {
+app.get("/ata", (req, res) => {
   res.render("ataquejuego");
 });
 
-app.get("/preparacionjuego", (req, res) => {
+app.get("/prep", (req, res) => {
   res.render("preparacionjuego");
 });
 
