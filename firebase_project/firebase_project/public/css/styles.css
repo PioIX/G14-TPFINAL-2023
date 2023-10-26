@@ -15,6 +15,7 @@ body {
   background-image: url("https://img1.wallspic.com/crops/2/2/8/9/39822/39822-el_agua_de_mar-1920x1080.jpg");
 }
 
+
 .container{
   position: absolute;
   top:50%;
@@ -152,6 +153,7 @@ form .contraseña{
   transition: .5s;
 
 }
+
 
 .body2 { 
   background-image: url("https://cdna.artstation.com/p/assets/images/images/018/484/808/large/anton-martinez-sayanes-de-cominges-proceso-escena-28-5.jpg?1559571364")
