@@ -1,13 +1,3 @@
-function casilla(posicion) {
-    console.log(posicion)
-}
-
-function imagen(posicion) {
-  console.log(posicion)
-}
-
-
-
 function changeScreenadmin() {
     const admin = document.getElementById("admin");
     const login = document.getElementById("login");
@@ -70,3 +60,16 @@ async function putJSON(data) {
     putJSON(data)
 
 }
+
+
+
+
+function casilla(posicion) {
+  console.log(posicion)
+}
+function imagen(posicion) {
+console.log(posicion)
+}
+
+
+
