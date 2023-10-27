@@ -88,16 +88,14 @@ app.get("/admin", (req, res) => {
   res.render("admin");
 });
 
-app.post("/login", async (req, res) => {
+app.put("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const userCredential = await authService.loginUser(auth, {
-      email,
-      password,
+    await authService.loginUser(auth, { email, password });
+    res.render("preparacionjuego", {
+      message: "Inicio de sesion exitoso",
     });
-    // Aquí puedes redirigir al usuario a la página que desees después del inicio de sesión exitoso
-    res.redirect("/dashboard");
   } catch (error) {
     console.error("Error en el inicio de sesión:", error);
     res.render("login", {
