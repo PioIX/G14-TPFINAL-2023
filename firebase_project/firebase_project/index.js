@@ -57,7 +57,7 @@ app.post("/register", async (req, res) => {
 
   try {
     await authService.registerUser(auth, { email, password });
-    res.render("register", {
+    res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
     });
   } catch (error) {
@@ -88,7 +88,7 @@ app.get("/admin", (req, res) => {
   res.render("admin");
 });
 
-app.put("/login", async (req, res) => {
+app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
