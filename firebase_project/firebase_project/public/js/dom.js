@@ -62,14 +62,38 @@ async function putJSON(data) {
 }
 
 
+let imagenSeleccionada = -1
 
+let objeto = {
+  barco: -1,
+  casilla: -1,
+  largo: -1
+}
 
 function casilla(posicion) {
   console.log(posicion)
+  console.log(posicion.id)
+  let ubicacion = document.getElementById(posicion.id).getBoundingClientRect()
+  console.log(ubicacion.top)
+  /*
+  position: absolute;
+  top: 20%;
+  right: 30%; */
+  if (imagenSeleccionada != -1) {
+    let mover = document.getElementById(imagenSeleccionada)
+    mover.style.position = "absolute"
+    mover.style.top = (ubicacion.top + 3)+ "px"
+    mover.style.left = (ubicacion.left - 60)+ "px"
+    let 
+  }
 }
 function imagen(posicion) {
 console.log(posicion)
+imagenSeleccionada = posicion.id
 }
 
 
 
+function juego() {
+
+} 
