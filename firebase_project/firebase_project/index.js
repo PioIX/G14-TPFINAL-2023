@@ -92,10 +92,17 @@ app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
+    
     await authService.loginUser(auth, { email, password });
-    res.render("preparacionjuego", {
-      message: "Inicio de sesion exitoso",
-    });
+    if (authService.loginUser.email=="SoyAdmin@admin.com" && authService.loginUser.password=="SoyAdmin"){
+      res.render("admin", {
+        message: "Se redirige a admin",
+      });
+    } else {
+      res.render("preparacionjuego", {
+        message: "Inicio de sesion exitoso",
+      });
+    }
   } catch (error) {
     console.error("Error en el inicio de sesión:", error);
     res.render("login", {
