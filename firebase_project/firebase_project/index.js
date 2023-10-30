@@ -114,4 +114,10 @@ app.get("/dashboard", (req, res) => {
 /************************************** */
 
 
-
+app.post("/guardarMovimiento", async (req, res) => {
+  console.log("post /guardarMovimiento");
+  console.log(req.query)
+  console.log(req.body)
+  
+  res.send(null);
+});

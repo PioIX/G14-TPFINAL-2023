@@ -84,16 +84,43 @@ function casilla(posicion) {
     mover.style.position = "absolute"
     mover.style.top = (ubicacion.top + 3)+ "px"
     mover.style.left = (ubicacion.left - 60)+ "px"
-    let 
+    let data = {mover: mover, posicion: posicion}
+    console.log(data)
+    guardarMovimiento(data)
+    
   }
 }
+
+async function guardarMovimiento(data) {   
+
+  try {
+    console.log(data)
+    const response = await fetch("/guardarMovimiento", {
+      method: "post", // or 'POST'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    
+    
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+
 function imagen(posicion) {
 console.log(posicion)
 imagenSeleccionada = posicion.id
 }
 
+let posicionatacada = -1
 
-
-function juego() {
-
+function ataque(posicion){
+  console.log(posicion)
+  console.log(posicion.id)
+  let ubicacionataque = document.getElementById(posicion.id).getBoundingClientRect()
+  console.log(ubicacionataque.top)
+  
 } 
