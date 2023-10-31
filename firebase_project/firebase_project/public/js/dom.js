@@ -84,7 +84,7 @@ function casilla(posicion) {
     mover.style.position = "absolute"
     mover.style.top = (ubicacion.top + 3)+ "px"
     mover.style.left = (ubicacion.left - 60)+ "px"
-    let data = {mover: mover, posicion: posicion}
+    let data = {top: ubicacion.top, left: ubicacion.left, imagenSeleccionada: imagenSeleccionada}
     console.log(data)
     guardarMovimiento(data)
     
@@ -124,3 +124,5 @@ function ataque(posicion){
   console.log(ubicacionataque.top)
   
 } 
+
+

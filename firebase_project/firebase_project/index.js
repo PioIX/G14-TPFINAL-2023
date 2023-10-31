@@ -1,5 +1,9 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const bodyParser = require('body-parser'); //Para el manejo de los strings JSON
+const MySQL = require('./modulos/mysql'); //Añado el archivo mysql.js presente en la carpeta módulos
+const session = require('express-session');
+
 const { initializeApp } = require("firebase/app");
 const {
   getAuth,
@@ -16,16 +20,34 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+app.use(bodyParser.urlencoded({ extended: false })); //Inicializo el parser JSON
+app.use(bodyParser.json());
+
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 const Listen_Port = 3000;
 
-app.listen(Listen_Port, function () {
+const server =  app.listen(Listen_Port, function () {
   console.log(
     "Servidor NodeJS corriendo en http://localhost:" + Listen_Port + "/"
   );
 });
+
+const io = require('socket.io')(server);
+
+const sessionMiddleware = session({
+    secret: 'sararasthastka',
+    resave: true,
+    saveUninitialized: false,
+});
+
+app.use(sessionMiddleware);
+
+io.use(function(socket, next) {
+  sessionMiddleware(socket.request, socket.request.res, next);
+});
+app.use(session({secret: '123456', resave: true, saveUninitialized: true}));
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -121,3 +143,13 @@ app.post("/guardarMovimiento", async (req, res) => {
   
   res.send(null);
 });
+
+// server-side
+io.on("connection", (socket) => {
+  console.log(socket.id); 
+  socket.on("mensaje-prueba", (data) => {
+    console.log(data);
+    socket.emit("mensaje-servidor", {mensaje: "chau"})
+  });
+});
+
