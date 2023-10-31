@@ -15,6 +15,7 @@ const registerUser = async (auth, { email, password }) => {
     );
     await sendEmailVerification(auth.currentUser);
     console.log("Verification email sent!");
+    return userCredential
   } catch (error) {
     console.error("Error registering user:", error);
     throw error;
@@ -28,15 +29,9 @@ const loginUser = async (auth, { email, password }) => {
       email,
       password
     );
-
-    if (!userCredential.user.emailVerified) {
-      throw new Error(
-        "Por favor, verifica tu correo electrónico para iniciar sesión."
-      );
-    }
-
-    console.log("Inicio de sesión exitoso para el usuario:", email);
-    return userCredential;
+    await sendEmailVerification(auth.currentUser);
+    console.log("Verification email sent!");
+    return userCredential
   } catch (error) {
     console.error("Error en el inicio de sesión:", error);
     throw error;

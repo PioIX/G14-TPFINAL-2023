@@ -1,3 +1,4 @@
+
 function changeScreenadmin() {
     const admin = document.getElementById("admin");
     const login = document.getElementById("login");
@@ -60,6 +61,7 @@ async function putJSON(data) {
     putJSON(data)
 
 }
+
 
 
 let imagenSeleccionada = -1
