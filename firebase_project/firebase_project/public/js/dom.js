@@ -8,6 +8,7 @@ function imagen(posicion) {
 
 
 
+/*
 function changeScreenadmin() {
     const admin = document.getElementById("admin");
     const login = document.getElementById("login");
@@ -70,3 +71,4 @@ async function putJSON(data) {
     putJSON(data)
 
 }
+*/

@@ -57,7 +57,7 @@ app.post("/register", async (req, res) => {
 
   try {
     await authService.registerUser(auth, { email, password });
-    res.render("register", {
+    res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
     });
   } catch (error) {
@@ -72,11 +72,11 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/ataquejuego", (req, res) => {
+app.get("/ata", (req, res) => {
   res.render("ataquejuego");
 });
 
-app.get("/preparacionjuego", (req, res) => {
+app.get("/prep", (req, res) => {
   res.render("preparacionjuego");
 });
 
@@ -92,12 +92,17 @@ app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const userCredential = await authService.loginUser(auth, {
-      email,
-      password,
-    });
-    // Aquí puedes redirigir al usuario a la página que desees después del inicio de sesión exitoso
-    res.redirect("/dashboard");
+    
+    await authService.loginUser(auth, { email, password });
+    if (authService.loginUser.email=="SoyAdmin@admin.com" && authService.loginUser.password=="SoyAdmin"){
+      res.render("admin", {
+        message: "Se redirige a admin",
+      });
+    } else {
+      res.render("preparacionjuego", {
+        message: "Inicio de sesion exitoso",
+      });
+    }
   } catch (error) {
     console.error("Error en el inicio de sesión:", error);
     res.render("login", {
