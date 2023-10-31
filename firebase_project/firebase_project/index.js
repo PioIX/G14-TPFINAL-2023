@@ -52,11 +52,15 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
-app.post("/register", async (req, res) => {
-  const { email, password } = req.body;
-
+app.post("/register", async function (req, res){
+  console.log (await (MySQL.realizarQuery("SELECT * FROM Users")))
+  const { email, password } = {email: req.body.email, password: req.body.password};
   try {
-    await authService.registerUser(auth, { email, password });
+    let userCredential = await authService.registerUser(auth, { email, password });
+    console.log(authService)
+    console.log(userCredential)
+    console.log(userCredential.user.uid)
+    await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password, admin) VALUES (${userCredential.user.uid}, "${email}", "${password}", 0))`)
     res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
     });
@@ -93,7 +97,7 @@ app.post("/login", async (req, res) => {
 
   try {
     
-    await authService.loginUser(auth, { email, password });
+    let userCredential = await authService.loginUser(auth, { email, password });
     if (authService.loginUser.email=="SoyAdmin@admin.com" && authService.loginUser.password=="SoyAdmin"){
       res.render("admin", {
         message: "Se redirige a admin",

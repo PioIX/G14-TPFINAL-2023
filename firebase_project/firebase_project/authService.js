@@ -15,6 +15,7 @@ const registerUser = async (auth, { email, password }) => {
     );
     await sendEmailVerification(auth.currentUser);
     console.log("Verification email sent!");
+    return userCredential
   } catch (error) {
     console.error("Error registering user:", error);
     throw error;
@@ -30,6 +31,7 @@ const loginUser = async (auth, { email, password }) => {
     );
     await sendEmailVerification(auth.currentUser);
     console.log("Verification email sent!");
+    return userCredential
   } catch (error) {
     console.error("Error en el inicio de sesión:", error);
     throw error;
