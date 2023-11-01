@@ -1,14 +1,4 @@
-function casilla(posicion) {
-    console.log(posicion)
-}
 
-function imagen(posicion) {
-  console.log(posicion)
-}
-
-
-
-/*
 function changeScreenadmin() {
     const admin = document.getElementById("admin");
     const login = document.getElementById("login");
@@ -71,4 +61,70 @@ async function putJSON(data) {
     putJSON(data)
 
 }
-*/
+
+
+
+let imagenSeleccionada = -1
+
+let objeto = {
+  barco: -1,
+  casilla: -1,
+  largo: -1
+}
+
+function casilla(posicion) {
+  console.log(posicion)
+  console.log(posicion.id)
+  let ubicacion = document.getElementById(posicion.id).getBoundingClientRect()
+  console.log(ubicacion.top)
+  /*
+  position: absolute;
+  top: 20%;
+  right: 30%; */
+  if (imagenSeleccionada != -1) {
+    let mover = document.getElementById(imagenSeleccionada)
+    mover.style.position = "absolute"
+    mover.style.top = (ubicacion.top + 3)+ "px"
+    mover.style.left = (ubicacion.left - 60)+ "px"
+    let data = {top: ubicacion.top, left: ubicacion.left, imagenSeleccionada: imagenSeleccionada}
+    console.log(data)
+    guardarMovimiento(data)
+    
+  }
+}
+
+async function guardarMovimiento(data) {   
+
+  try {
+    console.log(data)
+    const response = await fetch("/guardarMovimiento", {
+      method: "post", // or 'POST'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    
+    
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+
+function imagen(posicion) {
+console.log(posicion)
+imagenSeleccionada = posicion.id
+}
+
+let posicionatacada = -1
+
+function ataque(posicion){
+  console.log(posicion)
+  console.log(posicion.id)
+  let ubicacionataque = document.getElementById(posicion.id).getBoundingClientRect()
+  console.log(ubicacionataque.top)
+  
+} 
+
+
