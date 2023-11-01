@@ -19,7 +19,7 @@ async function putJSON(data) {
 
     try {
       const response = await fetch("/login", {
-        method: "PUT", // or 'POST'
+        method: "POST", // or 'POST'
         headers: {
           "Content-Type": "application/json",
         },
