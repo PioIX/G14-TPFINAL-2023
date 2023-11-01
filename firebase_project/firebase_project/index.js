@@ -80,9 +80,9 @@ app.post("/register", async function (req, res){
   const { email, password } = {email: req.body.email, password: req.body.password};
   try {
     let userCredential = await authService.registerUser(auth, { email, password });
-    console.log(authService)
-    console.log(userCredential)
-    console.log(userCredential.user.uid)
+    //console.log(authService)
+    //console.log(userCredential)
+    //console.log(userCredential.user.uid)
     await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES (${userCredential.user.uid}, "${email}", "${password}"))`)
     res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
@@ -153,6 +153,14 @@ app.post("/guardarMovimiento", async (req, res) => {
   
   res.send(null);
 });
+
+app.get('/admin', function(req, res)
+{
+    console.log("Soy un pedido GET", req.query); 
+    res.render('delete', null);
+});
+
+
 
 // server-side
 io.on("connection", (socket) => {
