@@ -115,6 +115,7 @@ async function guardarMovimiento(data) {
 function imagen(posicion) {
 console.log(posicion)
 imagenSeleccionada = posicion.id
+console.log(imagenSeleccionada)
 }
 
 let posicionatacada = -1
@@ -122,9 +123,13 @@ let posicionatacada = -1
 function ataque(posicion){
   console.log(posicion)
   console.log(posicion.id)
-  let ubicacionataque = document.getElementById(posicion.id).getBoundingClientRect()
-  if (ubicacionataque = "toco"){
-    
+  let posicionatacada = document.getElementById(posicion.id).getBoundingClientRect() 
+  if (result.posiciones = posicionatacada){
+    console.log("tocado")
+
+  }
+  else{
+    console.log("agua")
 
   }
   
