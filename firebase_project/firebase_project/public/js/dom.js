@@ -65,16 +65,16 @@ function casilla(posicion) {
     mover.style.left = (ubicacion.left - 60)+ "px"
     let data = {top: ubicacion.top, left: ubicacion.left, imagenSeleccionada: imagenSeleccionada}
     console.log(data)
-    guardarMovimiento(data)
+    guardarBarco(data)
     
   }
 }
 
-async function guardarMovimiento(data) {   
+async function guardarBarco(data) {   
 
   try {
     console.log(data)
-    const response = await fetch("/guardarMovimiento", {
+    const response = await fetch("/guardarBarco", {
       method: "post", // or 'POST'
       headers: {
         "Content-Type": "application/json",
@@ -92,16 +92,44 @@ async function guardarMovimiento(data) {
 function imagen(posicion) {
 console.log(posicion)
 imagenSeleccionada = posicion.id
+console.log(imagenSeleccionada)
 }
 
 let posicionatacada = -1
 
 function ataque(posicion){
-  console.log(posicion)
-  console.log(posicion.id)
-  let ubicacionataque = document.getElementById(posicion.id).getBoundingClientRect()
-  console.log(ubicacionataque.top)
   
+  console.log("posicion atacada:",posicion.id)
+  let posicionatacada = posicion.id  
+  /*if (result.posiciones = posicionatacada){
+    console.log("tocado")
+
+  }
+  else{
+    console.log("agua")
+
+  }
+  
+  console.log(ubicacionataque.top)
+  */
 } 
 
+
+async function ataque(posicionatacada) {   
+
+  try {
+    console.log(posicionatacada)
+    const response = await fetch("/ataque", {
+      method: "post", // or 'POST'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(posicionatacada),
+    });
+    
+    
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
 
