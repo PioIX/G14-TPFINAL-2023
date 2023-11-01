@@ -76,14 +76,15 @@ app.get("/register", (req, res) => {
 });
 
 app.post("/register", async function (req, res){
-  console.log (await (MySQL.realizarQuery("SELECT * FROM Users")))
+  //console.log (await (MySQL.realizarQuery("SELECT * FROM Users")))
   const { email, password } = {email: req.body.email, password: req.body.password};
   try {
     let userCredential = await authService.registerUser(auth, { email, password });
-    console.log(authService)
-    console.log(userCredential)
+    console.log(email)
+    //console.log(authService)
+    //console.log(userCredential)
     console.log(userCredential.user.uid)
-    await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password, admin) VALUES (${userCredential.user.uid}, "${email}", "${password}", 0))`)
+    await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES ("${userCredential.user.uid}", "${email}", "${password}")`)
     res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
     });
@@ -92,7 +93,7 @@ app.post("/register", async function (req, res){
     res.render("register", {
       message: "Error en el registro: " + error.message,
     });
-  }
+  } 
 });
 
 app.get("/login", (req, res) => {
@@ -116,12 +117,12 @@ app.get("/admin", (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = {email: req.body.email, password: req.body.password};
 
   try {
     
     let userCredential = await authService.loginUser(auth, { email, password });
-    if (authService.loginUser.email=="SoyAdmin@admin.com" && authService.loginUser.password=="SoyAdmin"){
+    if (email=="SoyAdmin@admin.com" && password=="SoyAdmin"){
       res.render("admin", {
         message: "Se redirige a admin",
       });
@@ -138,6 +139,20 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.post('/admin', async function(req, res) {
+  await MySQL.realizarQuery(`DELETE FROM Users WHERE email = "${req.body.deleteusuario}"`)
+  let respuesta = await MySQL.realizarQuery(`SELECT * FROM Users WHERE email = "${req.body.deleteusuario}"`);
+
+    //Chequeo el largo del vector a ver si tiene datos
+    if (respuesta.length == 0) {
+        //Armo un objeto para responder
+        res.send({validar: true})
+    }
+    else{
+        res.send({validar:false})    
+    
+    }
+});
 app.get("/dashboard", (req, res) => {
   // Agrega aquí la lógica para mostrar la página del dashboard
   res.render("dashboard");
@@ -157,6 +172,7 @@ app.post("/guardarBarco", async (req, res) => {
 });
 
 
+
 app.post("/ataque", async (req, res) => {
   console.log("post /ataque");
   console.log(req.body)
@@ -167,6 +183,16 @@ app.post("/ataque", async (req, res) => {
   */
 });
 
+
+
+
+
+
+app.get('/admin', function(req, res)
+{
+    console.log("Soy un pedido GET", req.query); 
+    res.render('delete', null);
+});
 
 
 
