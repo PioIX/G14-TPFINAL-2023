@@ -1,5 +1,8 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const bodyParser = require('body-parser');
+const MySQL = require('./modulos/mysql');
+const session = require('express-session');
 const { initializeApp } = require("firebase/app");
 const {
   getAuth,
@@ -9,6 +12,7 @@ const {
   signOut,
   GoogleAuthProvider,
 } = require("firebase/auth");
+
 
 
 const app = express();
