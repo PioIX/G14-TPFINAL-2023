@@ -123,6 +123,11 @@ function ataque(posicion){
   console.log(posicion)
   console.log(posicion.id)
   let ubicacionataque = document.getElementById(posicion.id).getBoundingClientRect()
+  if (ubicacionataque = "toco"){
+    
+
+  }
+  
   console.log(ubicacionataque.top)
   
 } 

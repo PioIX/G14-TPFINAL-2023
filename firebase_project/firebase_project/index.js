@@ -154,6 +154,12 @@ app.post("/guardarMovimiento", async (req, res) => {
   res.send(null);
 });
 
+
+
+
+
+
+
 // server-side
 io.on("connection", (socket) => {
   console.log(socket.id); 
