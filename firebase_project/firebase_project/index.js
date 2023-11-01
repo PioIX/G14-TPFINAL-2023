@@ -83,7 +83,7 @@ app.post("/register", async function (req, res){
     console.log(authService)
     console.log(userCredential)
     console.log(userCredential.user.uid)
-    await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password, admin) VALUES (${userCredential.user.uid}, "${email}", "${password}", 0))`)
+    await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES (${userCredential.user.uid}, "${email}", "${password}"))`)
     res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
     });
