@@ -207,9 +207,18 @@ h1 {
 
 
 .imagen1 {
+  height: 40px;
+  width: 120px;
+  margin-left: 60px;
+  
+}
+
+.imagen2 {
   width: 20%;
   margin-left: 60px;
- 
+  position: absolute;
+  top: 20%;
+  right: 30%; 
 }
 
 .h21 {
