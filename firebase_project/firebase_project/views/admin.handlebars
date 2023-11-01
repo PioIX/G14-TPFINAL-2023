@@ -1,8 +1,13 @@
-<form action="/admin" method="POST" id="form3" class="container-sm">
+<form action="/admin" method="GET" id="form3" class="container-sm">
     <h1>admin</h1>
-     <form action="/delete" method="GET" class="container-sm">
-            <div class="mb-3 form-group">
-                <input type="submit" class="btn btn-primary" id="delete" value="Eliminar palabra">
-            </div>
-        </form>
+        <div class="mb-3 form-group">
+            <h1>Eliminar usuario</h1>
+        </div>
+        <div class="mb-3 form-group">
+            <label for="iddelete" class="form-label">Eliminar usuario</label>
+            <input type="text" class="form-control" id="deleteusuario" name="eliminarusuario" value="" placeholder="Ingrese el email del usuario que quiere eliminar">
+        </div>
+        <div class="mb-3 form-group">
+            <input type="button" class="typelogin" onclick="borrar()" value="Borrar usuario">
+        </div>
 </form>
