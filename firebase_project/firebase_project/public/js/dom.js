@@ -63,12 +63,15 @@ function casilla(posicion) {
     mover.style.position = "absolute"
     mover.style.top = (ubicacion.top + 3)+ "px"
     mover.style.left = (ubicacion.left - 60)+ "px"
-    let data = {top: ubicacion.top, left: ubicacion.left, imagenSeleccionada: imagenSeleccionada}
-    console.log(data)
-    guardarBarco(data)
+    /*let data = {top: ubicacion.top, left: ubicacion.left, imagenSeleccionada: imagenSeleccionada}
+    console.log(data)*/
+    let objeto = {barco: imagenSeleccionada ,casilla: posicion.id, orientación: 0 }
+    guardarBarco(objeto)
     
   }
 }
+
+
 
 async function guardarBarco(data) {   
 
@@ -82,11 +85,12 @@ async function guardarBarco(data) {
       body: JSON.stringify(data),
     });
     
-    
   } catch (error) {
     console.error("Error:", error);
   }
+
 }
+
 
 
 function imagen(posicion) {
