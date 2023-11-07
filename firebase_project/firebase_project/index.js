@@ -100,7 +100,7 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/ata", (req, res) => {
+app.get("/ataque", (req, res) => {
   res.render("ataquejuego");
 });
 

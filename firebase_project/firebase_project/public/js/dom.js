@@ -97,11 +97,12 @@ console.log(imagenSeleccionada)
 
 let posicionatacada = -1
 
+/*
 function ataque(posicion){
   
   console.log("posicion atacada:",posicion.id)
   let posicionatacada = posicion.id  
-  /*if (result.posiciones = posicionatacada){
+  if (result.posiciones = posicionatacada){
     console.log("tocado")
 
   }
@@ -111,16 +112,32 @@ function ataque(posicion){
   }
   
   console.log(ubicacionataque.top)
-  */
 } 
-
+/*
 
 async function ataque(posicionatacada) {   
 
   try {
-    console.log(posicionatacada)
     const response = await fetch("/ataque", {
-      method: "post", // or 'POST'
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(posicionatacada),
+    });
+    
+    
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+*/
+
+async function ataque(posicionatacada) {   
+
+  try {
+    const response = await fetch("/ataque", {
+      method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
       },
@@ -133,3 +150,15 @@ async function ataque(posicionatacada) {
   }
 }
 
+function ataque() {
+  //Leo los datos del input
+  let id_User = document.getElementById("deleteusuario").value
+  //Creo un objeto de forma instantanea
+  let data = {
+    deleteusuario: id_User
+  }
+
+  //data es el objeto que le paso al back
+  putJSON5(data)
+
+}
