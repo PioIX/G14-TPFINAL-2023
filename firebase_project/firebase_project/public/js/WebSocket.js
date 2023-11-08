@@ -1,6 +1,6 @@
 const socket = io();
 
-io.on('connection', socket =>{
+socket.on('connection', socket =>{
     console.log('Nuevo usuario conectado');
 });
 
