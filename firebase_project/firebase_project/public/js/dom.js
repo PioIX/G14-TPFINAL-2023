@@ -100,15 +100,17 @@ function imagen(posicion) {
 console.log(posicion)
 imagenSeleccionada = posicion.id
 console.log(imagenSeleccionada)
+
 }
 
 let posicionatacada = -1
 
-/*
-function ataque(posicion){
-  
+
+function ataque(){
+  let posicionatacada = document.getElementById(posicion.id) 
   console.log("posicion atacada:",posicion.id)
-  let posicionatacada = posicion.id  
+  
+  
   if (result.posiciones = posicionatacada){
     console.log("tocado")
 
@@ -118,11 +120,12 @@ function ataque(posicion){
 
   }
   
-  console.log(ubicacionataque.top)
+  
 } 
-*/
 
-async function ataque(posicionatacada) {   
+
+
+async function ataque() {   
 
   try {
     const response = await fetch("/ataque", {
@@ -130,7 +133,7 @@ async function ataque(posicionatacada) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(posicionatacada),
+      body: JSON.stringify(),
     });
     
     
@@ -139,24 +142,7 @@ async function ataque(posicionatacada) {
   }
 }
 
-
-async function ataque(posicionatacada) {   
-
-  try {
-    const response = await fetch("/ataque", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(posicionatacada),
-    });
-    
-    
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
+/*
 function ataque() {
   //Leo los datos del input
   let id_User = document.getElementById("deleteusuario").value
@@ -169,3 +155,4 @@ function ataque() {
   putJSON5(data)
 
 }
+*/

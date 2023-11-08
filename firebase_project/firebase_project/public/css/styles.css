@@ -243,3 +243,27 @@ h1 {
   width: 9%;
   background-color: #ff0000;
 }
+
+.hitaguacasilla {
+  border: 1px solid black;
+  text-align: center;
+  height: 9%;
+  width: 9%;
+  background-color: rgb(0, 183, 255);
+}
+
+.hitcasillapropia {
+  border: 1px solid black;
+  text-align: center;
+  height: 9%;
+  width: 9%;
+  background-color: rgb(56, 5, 5);
+}
+
+.barcoubicadopropio {
+  border: 1px solid black;
+  text-align: center;
+  height: 9%;
+  width: 9%;
+  background-color: rgb(251, 255, 0);
+}

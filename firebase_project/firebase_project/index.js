@@ -43,6 +43,10 @@ const sessionMiddleware = session({
     saveUninitialized: false,
 });
 
+let cant=0
+
+
+
 app.use(sessionMiddleware);
 
 io.use(function(socket, next) {
@@ -173,7 +177,7 @@ app.post("/guardarBarco", async (req, res) => {
   console.log(req.body)
   
   
-  /*/MySQL.realizarQuery (`UPDATE tabla 
+  /*MySQL.realizarQuery (`UPDATE tabla 
   SET J1B${req.body.barco} = (${req.body.casilla}) , J1B${req.body.barco} = (${req.body.casilla},)
   WHERE 
   ;
@@ -225,9 +229,14 @@ io.on("connection", (socket) => {
   });
 
   socket.on("unirme-sala", (data) =>{
-    console.log(data)
+    cant =cant++
+    if (cant <2) {
+      console.log(data)
     socket.join("nombreSala")
     io.to("nombreSala").emit("some event");
+    }else
+    {//salallena)
+    }
   })
 });
 
