@@ -66,7 +66,7 @@ function casilla(posicion) {
     /*let data = {top: ubicacion.top, left: ubicacion.left, imagenSeleccionada: imagenSeleccionada}
     console.log(data)*/
     let objeto = {barco: imagenSeleccionada ,casilla: posicion.id, orientación: 0 }
-    guardarBarco(objeto)
+    //guardarBarco(objeto)
     
   }
 }
@@ -77,7 +77,7 @@ async function guardarBarco(data) {
 
   try {
     console.log(data)
-    const response = await fetch("/guardarBarco", {
+    const response = await fetch("/preparacionjuego", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
