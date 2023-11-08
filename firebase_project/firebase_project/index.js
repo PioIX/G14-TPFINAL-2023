@@ -161,15 +161,18 @@ app.get("/dashboard", (req, res) => {
 /************************************** */
 
 
+
+
 app.post("/guardarBarco", async (req, res) => {
   console.log("post /guardarBarco");
   console.log(req.body)
   
   res.send(null);
-  /*MySQL.realizarQuery (`Insert into result(posiciones)
+  MySQL.realizarQuery (`Insert into result(posiciones)
   values(${req.body})`)
-  */
+  
 });
+
 
 
 

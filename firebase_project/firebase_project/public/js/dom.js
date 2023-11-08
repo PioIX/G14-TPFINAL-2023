@@ -70,23 +70,25 @@ function casilla(posicion) {
   }
 }
 
+
 async function guardarBarco(data) {   
 
   try {
     console.log(data)
     const response = await fetch("/guardarBarco", {
-      method: "post", // or 'POST'
+      method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
     
-    
   } catch (error) {
     console.error("Error:", error);
   }
 }
+
+
 
 
 function imagen(posicion) {
