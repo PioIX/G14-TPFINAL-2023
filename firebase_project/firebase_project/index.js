@@ -171,17 +171,13 @@ app.post("/guardarBarco", async (req, res) => {
   console.log("post /guardarBarco");
   console.log(req.body)
   
-  res.send(null);
-
   MySQL.realizarQuery (`UPDATE tabla 
   SET J1B${objeto.barco} = (${objeto.casilla}) , J1B${objeto.barco} = (${objeto.casilla},)
   WHERE 
   ;
   `)
 
-
-
-
+})
 
 app.post("/ataque", async (req, res) => {
   console.log("post /ataque");
