@@ -168,10 +168,13 @@ app.post("/guardarBarco", async (req, res) => {
   console.log(req.body)
   
   res.send(null);
-  MySQL.realizarQuery (`Insert into result(posiciones)
-  values(${req.body})`)
-  
-});
+
+  MySQL.realizarQuery (`UPDATE tabla 
+  SET J1B1 = (${objeto.casilla}) , J1B2 = (${objeto.casilla})
+  WHERE 
+  ;
+  `)
+
 
 
 
