@@ -84,6 +84,8 @@ async function guardarBarco(data) {
       },
       body: JSON.stringify(data),
     });
+
+    unirseSala()
     
   } catch (error) {
     console.error("Error:", error);

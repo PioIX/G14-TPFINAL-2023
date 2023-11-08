@@ -100,7 +100,7 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/ataque", (req, res) => {
+app.put("/ata", (req, res) => {
   res.render("ataquejuego");
 });
 
@@ -122,6 +122,7 @@ app.post("/login", async (req, res) => {
   try {
     
     let userCredential = await authService.loginUser(auth, { email, password });
+    req.session.mail = email
     if (email=="SoyAdmin@admin.com" && password=="SoyAdmin"){
       res.render("admin", {
         message: "Se redirige a admin",
@@ -171,14 +172,14 @@ app.post("/guardarBarco", async (req, res) => {
   console.log("post /guardarBarco");
   console.log(req.body)
   
-  res.send(null);
-
-  MySQL.realizarQuery (`UPDATE tabla 
-  SET J1B${objeto.barco} = (${objeto.casilla}) , J1B${objeto.barco} = (${objeto.casilla},)
+  
+  /*/MySQL.realizarQuery (`UPDATE tabla 
+  SET J1B${req.body.barco} = (${req.body.casilla}) , J1B${req.body.barco} = (${req.body.casilla},)
   WHERE 
   ;
-  `)
-
+  `)*/
+  res.send(null);
+  
 });
 
 
@@ -204,6 +205,15 @@ app.get('/admin', function(req, res)
 });
 
 
+app.put('/admin', function(req, res)
+{
+    console.log("Soy un pedido GET", req.query); 
+    res.render('delete', null);
+});
+
+
+
+
 
 
 // server-side
@@ -213,5 +223,12 @@ io.on("connection", (socket) => {
     console.log(data);
     socket.emit("mensaje-servidor", {mensaje: "chau"})
   });
+
+  socket.on("unirme-sala", (data) =>{
+    console.log(data)
+    socket.join("nombreSala")
+    io.to("nombreSala").emit("some event");
+  })
 });
+
 
