@@ -173,11 +173,18 @@ app.post("/guardarBarco", async (req, res) => {
   console.log("post /guardarBarco");
   console.log(req.body)
   
-  MySQL.realizarQuery (`UPDATE tabla 
-  SET J1B${objeto.barco} = (${objeto.casilla}) , J1B${objeto.barco} = (${objeto.casilla},)
-  WHERE 
-  ;
-  `)
+  MySQL.realizarQuery (`UPDATE tabla SET J1B${objeto.barco} = "${req.body.casilla}" , J1B${objeto.barco} = "${req.body.casilla}" WHERE ID_Partida !=null`)
+  let respuesta = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE J1B${objeto.barco} = (${objeto.casilla})`);
+
+    //Chequeo el largo del vector a ver si tiene datos
+    if (respuesta.length > 0) {
+        //Armo un objeto para responder
+        res.send({validar: true})
+    }
+    else{
+        res.send({validar:false})    
+    
+    }
 
 })
 
