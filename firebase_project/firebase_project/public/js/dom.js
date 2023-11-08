@@ -118,7 +118,7 @@ function ataque(posicion){
   
   console.log(ubicacionataque.top)
 } 
-/*
+*/
 
 async function ataque(posicionatacada) {   
 
@@ -136,7 +136,7 @@ async function ataque(posicionatacada) {
     console.error("Error:", error);
   }
 }
-*/
+
 
 async function ataque(posicionatacada) {   
 
