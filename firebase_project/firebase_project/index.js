@@ -160,6 +160,10 @@ app.get("/dashboard", (req, res) => {
 
 /************************************** */
 
+var jugadores = {
+  jugador1: 0,
+  jugador2: 0
+};
 
 
 
@@ -170,7 +174,7 @@ app.post("/guardarBarco", async (req, res) => {
   res.send(null);
 
   MySQL.realizarQuery (`UPDATE tabla 
-  SET J1B1 = (${objeto.casilla}) , J1B2 = (${objeto.casilla})
+  SET J1B${objeto.barco} = (${objeto.casilla}) , J1B${objeto.barco} = (${objeto.casilla},)
   WHERE 
   ;
   `)
