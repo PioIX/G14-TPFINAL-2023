@@ -100,7 +100,7 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.get("/ata", (req, res) => {
+app.get("/ataque", (req, res) => {
   res.render("ataquejuego");
 });
 
@@ -161,18 +161,21 @@ app.get("/dashboard", (req, res) => {
 /************************************** */
 
 
+
+
 app.post("/guardarBarco", async (req, res) => {
   console.log("post /guardarBarco");
   console.log(req.body)
   
   res.send(null);
+
   MySQL.realizarQuery (`UPDATE tabla 
   SET J1B1 = (${objeto.casilla}) , J1B2 = (${objeto.casilla})
   WHERE 
   ;
   `)
-  
-});
+
+
 
 
 
