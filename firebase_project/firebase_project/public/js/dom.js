@@ -66,7 +66,7 @@ function casilla(posicion) {
     /*let data = {top: ubicacion.top, left: ubicacion.left, imagenSeleccionada: imagenSeleccionada}
     console.log(data)*/
     let objeto = {barco: imagenSeleccionada ,casilla: posicion.id, orientación: 0 }
-    //guardarBarco(objeto)
+    guardarBarco(objeto)
     
   }
 }
@@ -102,12 +102,12 @@ async function guardarBarco(data) {
 
 function guardar() {
   //Leo los datos del input
-  let casilla= document.getElementsByName(casilla(this)).value
+  let casilla= document.getElementsByName(objeto.casilla).value
   //Creo un objeto de forma instantanea
   let data = {
     casilla: casilla
   }
-
+  console.log(data)
   //data es el objeto que le paso al back
   guardarBarco(data)
 
