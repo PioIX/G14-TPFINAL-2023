@@ -66,7 +66,7 @@ function casilla(posicion) {
     /*let data = {top: ubicacion.top, left: ubicacion.left, imagenSeleccionada: imagenSeleccionada}
     console.log(data)*/
     let objeto = {barco: imagenSeleccionada ,casilla: posicion.id, orientación: 0 }
-    //guardarBarco(objeto)
+    guardarBarco(objeto)
     
   }
 }
@@ -77,17 +77,39 @@ async function guardarBarco(data) {
 
   try {
     console.log(data)
-    const response = await fetch("/preparacionjuego", {
+    const responseG = await fetch("/prep", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    
+    const resultG = await responseG.json();
+    console.log("Success:", resultG);
+
+    if (resultG.validar == false) {
+      alert("Los datos son incorrectos")
+    } else {
+      //Envio el formularia desde dom para cambiar de pagina
+      //Podria usar tambien un changeScreen()
+      document.getElementById("form4").submit()
+    }
   } catch (error) {
     console.error("Error:", error);
   }
+
+}
+
+function guardar() {
+  //Leo los datos del input
+  let casilla= document.getElementsByName(objeto.casilla).value
+  //Creo un objeto de forma instantanea
+  let data = {
+    casilla: casilla
+  }
+  console.log(data)
+  //data es el objeto que le paso al back
+  guardarBarco(data)
 
 }
 
