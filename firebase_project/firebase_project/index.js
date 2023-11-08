@@ -160,6 +160,10 @@ app.get("/dashboard", (req, res) => {
 
 /************************************** */
 
+var jugadores = {
+  jugador1: 0,
+  jugador2: 0
+};
 
 
 
