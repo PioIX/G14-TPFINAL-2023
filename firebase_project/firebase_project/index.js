@@ -165,10 +165,7 @@ app.get("/dashboard", (req, res) => {
 
 /************************************** */
 
-var jugadores = {
-  jugador1: 0,
-  jugador2: 0
-};
+
 
 
 
@@ -217,6 +214,10 @@ app.put('/admin', function(req, res)
 
 
 
+var jugadores = {
+  jugador1: 0,
+  jugador2: 0
+};
 
 
 
@@ -228,16 +229,32 @@ io.on("connection", (socket) => {
     socket.emit("mensaje-servidor", {mensaje: "chau"})
   });
 
+  
   socket.on("unirme-sala", (data) =>{
+    if (cant=0){
+      console.log("Jugador 1")
+      jugador1 == userCredential.user.uid
+    }
+    if (cant=1){
+      console.log("Jugador 2")
+      jugador2 == userCredential.user.uid
+    }
     cant =cant++
     if (cant <2) {
       console.log(data)
     socket.join("nombreSala")
     io.to("nombreSala").emit("some event");
+
     }else
     {//salallena)
     }
   })
+
+  socket.on("nombreSala",()  => {
+    
+  })
 });
+
+
 
 

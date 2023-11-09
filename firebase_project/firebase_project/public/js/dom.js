@@ -106,6 +106,13 @@ console.log(imagenSeleccionada)
 let posicionatacada = -1
 
 
+
+
+/*function prepa(){
+
+}
+*/
+
 function ataque(){
   let posicionatacada = document.getElementById(posicion.id) 
   console.log("posicion atacada:",posicion.id)
