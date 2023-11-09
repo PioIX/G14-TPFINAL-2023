@@ -108,6 +108,10 @@ app.get("/prep", (req, res) => {
   res.render("preparacionjuego");
 });
 
+app.get("/preparacionjuego", (req, res) =>{
+  res.render("ataquejuego")
+});
+
 app.get("/home", (req, res) => {
   res.render("home");
 });
