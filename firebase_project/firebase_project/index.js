@@ -193,10 +193,11 @@ app.post("/prep", async (req, res) => {
   WHERE NOT ID_Partida = "null"
   ;
   `)
-  let respuesta = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE J1B${req.body.barco} = "${req.body.casilla}" `);
-  console.log("respues:",respuesta)
+  console.log(`SELECT * FROM Partidas WHERE J1B${req.body.barco} = "${req.body.casilla}"; `)
+  let resp = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE J1B${req.body.barco} = "${req.body.casilla}"; `);
+  console.log("respues:",resp)
     //Chequeo el largo del vector a ver si tiene datos
-    if (respuesta.length > 0) {
+    if (resp.length > 0) {
         //Armo un objeto para responder
         res.send({validar: true})
     }

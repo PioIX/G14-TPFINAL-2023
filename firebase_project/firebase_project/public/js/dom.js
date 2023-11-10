@@ -97,6 +97,7 @@ async function guardarBarco(data) {
     } else {
       //Envio el formularia desde dom para cambiar de pagina
       //Podria usar tambien un changeScreen()
+      guardarBarco(objeto)
       document.getElementById("form4").submit()
     }
 
@@ -108,17 +109,17 @@ async function guardarBarco(data) {
 
 function guardar() {
   //Leo los datos del input
-  let casilla= document.getElementsByName(objeto.casilla).value
+  let casilla= document.getElementById(casilla.posicion).value
+  console.log(casilla)
   //Creo un objeto de forma instantanea
   let data = {
     casilla: casilla
   }
   console.log(data)
   //data es el objeto que le paso al back
-  guardarBarco(data)
+ guardarBarco(data)
 
 }
-
 
 
 
