@@ -88,6 +88,7 @@ app.post("/register", async function (req, res){
     //console.log(authService)
     //console.log(userCredential)
     console.log(userCredential.user.uid)
+    req.session.uid = userCredential.user.uid
     await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES ("${userCredential.user.uid}", "${email}", "${password}")`)
     res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
@@ -104,7 +105,7 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
-app.put("/ata", (req, res) => {
+app.get("/ata", (req, res) => {
   res.render("ataquejuego");
 });
 
@@ -127,14 +128,16 @@ app.post("/login", async (req, res) => {
     
     let userCredential = await authService.loginUser(auth, { email, password });
     req.session.mail = email
+    req.session.uid = userCredential.user.uid
     if (email=="SoyAdmin@admin.com" && password=="SoyAdmin"){
       res.render("admin", {
         message: "Se redirige a admin",
       });
     } else {
-      res.render("preparacionjuego", {
+      res.redirect("/prep")
+     /* res.render("preparacionjuego", {
         message: "Inicio de sesion exitoso",
-      });
+      });*/
     }
   } catch (error) {
     console.error("Error en el inicio de sesión:", error);
@@ -223,6 +226,7 @@ var jugadores = {
 
 // server-side
 io.on("connection", (socket) => {
+  const req = socket.request;
   console.log(socket.id); 
   socket.on("mensaje-prueba", (data) => {
     console.log(data);
@@ -231,13 +235,13 @@ io.on("connection", (socket) => {
 
   
   socket.on("unirme-sala", (data) =>{
-    if (cant=0){
+    if (cant==0){
       console.log("Jugador 1")
-      jugador1 == userCredential.user.uid
+      jugador1 = req.session.uid
     }
-    if (cant=1){
+    if (cant==1){
       console.log("Jugador 2")
-      jugador2 == userCredential.user.uid
+      jugador2 = req.session.uid
     }
     cant =cant++
     if (cant <2) {
