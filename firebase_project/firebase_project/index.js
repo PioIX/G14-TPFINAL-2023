@@ -113,6 +113,10 @@ app.get("/prep", (req, res) => {
   res.render("preparacionjuego");
 });
 
+app.get("/preparacionjuego", (req, res) =>{
+  res.render("ataquejuego")
+});
+
 app.get("/home", (req, res) => {
   res.render("home");
 });
@@ -120,6 +124,11 @@ app.get("/home", (req, res) => {
 app.get("/admin", (req, res) => {
   res.render("admin");
 });
+
+app.get("/ata", (req, res) =>{
+  res.render("ataquejuego")
+});
+
 
 app.post("/login", async (req, res) => {
   const { email, password } = {email: req.body.email, password: req.body.password};
@@ -168,23 +177,35 @@ app.get("/dashboard", (req, res) => {
 
 /************************************** */
 
+var jugadores = {
+  jugador1: 0,
+  jugador2: 0
+};
 
 
 
 
-app.post("/guardarBarco", async (req, res) => {
-  console.log("post /guardarBarco");
-  console.log(req.body)
+app.post("/prep", async (req, res) => {
+  console.log("POST /prep:" ,req.body)
   
-  
-  /*MySQL.realizarQuery (`UPDATE tabla 
-  SET J1B${req.body.barco} = (${req.body.casilla}) , J1B${req.body.barco} = (${req.body.casilla},)
-  WHERE 
+  MySQL.realizarQuery (`UPDATE Partidas 
+  SET J1B${req.body.barco} = "${req.body.casilla}"
+  WHERE NOT ID_Partida = "null"
   ;
-  `)*/
-  res.send(null);
-  
-});
+  `)
+  let respuesta = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE J1B${req.body.barco} = "${req.body.casilla}" `);
+  console.log("respues:",respuesta)
+    //Chequeo el largo del vector a ver si tiene datos
+    if (respuesta.length > 0) {
+        //Armo un objeto para responder
+        res.send({validar: true})
+    }
+    else{
+        res.send({validar:false})    
+    
+    }
+
+})
 
 
 app.post("/ataque", async (req, res) => {
