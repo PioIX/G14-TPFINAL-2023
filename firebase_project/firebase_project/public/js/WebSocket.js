@@ -12,4 +12,14 @@ socket.on("mensaje-servidor", (data) => {
 function funcionPrueba() {
     socket.emit("mensaje-prueba",{mensaje: "hola"})
 }
-  
+
+
+
+function unirseSala() {
+    socket.emit("unirme-sala",{mensaje:"uniendose a la sala"} )
+}
+
+
+
+
+//movimiento mandar a la sala y a la base de datos

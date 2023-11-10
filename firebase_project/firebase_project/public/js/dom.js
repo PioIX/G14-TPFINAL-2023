@@ -84,6 +84,11 @@ async function guardarBarco(data) {
       },
       body: JSON.stringify(data),
     });
+
+
+    unirseSala()
+    
+
     const resultG = await responseG.json();
     console.log("Success:", resultG);
 
@@ -95,6 +100,7 @@ async function guardarBarco(data) {
       guardarBarco(objeto)
       document.getElementById("form4").submit()
     }
+
   } catch (error) {
     console.error("Error:", error);
   }
@@ -121,15 +127,24 @@ function imagen(posicion) {
 console.log(posicion)
 imagenSeleccionada = posicion.id
 console.log(imagenSeleccionada)
+
 }
 
 let posicionatacada = -1
 
-/*
-function ataque(posicion){
-  
+
+
+
+/*function prepa(){
+
+}
+*/
+
+function ataque(){
+  let posicionatacada = document.getElementById(posicion.id) 
   console.log("posicion atacada:",posicion.id)
-  let posicionatacada = posicion.id  
+  
+  
   if (result.posiciones = posicionatacada){
     console.log("tocado")
 
@@ -139,45 +154,29 @@ function ataque(posicion){
 
   }
   
-  console.log(ubicacionataque.top)
+  
 } 
+
+
+
+async function ataque() {   
+
+  try {
+    const response = await fetch("/ataque", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(),
+    });
+    
+    
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
 /*
-
-async function ataque(posicionatacada) {   
-
-  try {
-    const response = await fetch("/ataque", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(posicionatacada),
-    });
-    
-    
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-*/
-
-async function ataque(posicionatacada) {   
-
-  try {
-    const response = await fetch("/ataque", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(posicionatacada),
-    });
-    
-    
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
 function ataque() {
   //Leo los datos del input
   let id_User = document.getElementById("deleteusuario").value
@@ -190,3 +189,4 @@ function ataque() {
   putJSON5(data)
 
 }
+*/
