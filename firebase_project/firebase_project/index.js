@@ -102,7 +102,14 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/ata", (req, res) => {
-  res.render("ataquejuego");
+  //eN SESSION VAS A GUARDAR QUIEN ES P1 Y QUIEN ES P2
+  let player = 0;
+  if(jugadores.jugador1 === req.session.uid)
+    player = 1;
+  else if(jugadores.jugador2 === req.session.uid)
+    player = 2;
+  console.log("JUGADORES ", jugadores, "UID ", req.session.uid)
+  res.render("ataquejuego", { player: player });
 });
 
 app.get("/prep", (req, res) => {
@@ -216,20 +223,14 @@ app.get('/admin', function(req, res)
 });
 
 
+app.get()
+
+
 app.put('/admin', function(req, res)
 {
     console.log("Soy un pedido GET", req.query); 
     res.render('delete', null);
 });
-
-
-
-var jugadores = {
-  jugador1: 0,
-  jugador2: 0
-};
-
-
 
 // server-side
 io.on("connection", (socket) => {
@@ -244,15 +245,15 @@ io.on("connection", (socket) => {
   socket.on("unirme-sala", (data) =>{
     if (cant==0){
       console.log("Jugador 1")
-      jugador1 = req.session.uid
+      jugadores.jugador1 = req.session.uid
     }
-    if (cant==1){
+    else if (cant==1){
       console.log("Jugador 2")
-      jugador2 = req.session.uid
+      jugadores.jugador2 = req.session.uid
     }
     cant =cant++
     if (cant <2) {
-      console.log(data)
+      console.log("CANT < 2", data)
     socket.join("nombreSala")
     io.to("nombreSala").emit("some event");
 

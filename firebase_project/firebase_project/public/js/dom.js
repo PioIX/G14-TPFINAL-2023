@@ -51,6 +51,7 @@ let objeto = {
 
 function casilla(posicion) {
   console.log(posicion)
+  posicion.classList.add("mystyle");
   console.log(posicion.id)
   let ubicacion = document.getElementById(posicion.id).getBoundingClientRect()
   console.log(ubicacion.top)
@@ -106,9 +107,9 @@ async function guardarBarco(data) {
 
 }
 
-function guardar() {
 
  guardarBarco(data)
+
 
 }
 
@@ -126,10 +127,7 @@ let posicionatacada = -1
 
 
 
-/*function prepa(){
 
-}
-*/
 
 function ataque(){
   let posicionatacada = document.getElementById(posicion.id) 
@@ -154,7 +152,7 @@ async function ataque() {
 
   try {
     const response = await fetch("/ataque", {
-      method: "POST", // or 'PUT'
+      method: "GET", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
       },
@@ -167,17 +165,3 @@ async function ataque() {
   }
 }
 
-/*
-function ataque() {
-  //Leo los datos del input
-  let id_User = document.getElementById("deleteusuario").value
-  //Creo un objeto de forma instantanea
-  let data = {
-    deleteusuario: id_User
-  }
-
-  //data es el objeto que le paso al back
-  putJSON5(data)
-
-}
-*/
