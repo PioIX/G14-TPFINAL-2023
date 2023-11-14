@@ -84,11 +84,7 @@ app.post("/register", async function (req, res){
   const { email, password } = {email: req.body.email, password: req.body.password};
   try {
     let userCredential = await authService.registerUser(auth, { email, password });
-    console.log(email)
-    //console.log(authService)
-    //console.log(userCredential)
-    console.log(userCredential.user.uid)
-    req.session.uid = userCredential.user.uid
+    //req.session.uid = userCredential.user.uid
     await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES ("${userCredential.user.uid}", "${email}", "${password}")`)
     res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
@@ -193,18 +189,7 @@ app.post("/prep", async (req, res) => {
   WHERE NOT ID_Partida = "null"
   ;
   `)
-  console.log(`SELECT * FROM Partidas WHERE J1B${req.body.barco} = "${req.body.casilla}"; `)
-  let resp = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE J1B${req.body.barco} = "${req.body.casilla}"; `);
-  console.log("respues:",resp)
-    //Chequeo el largo del vector a ver si tiene datos
-    if (resp.length > 0) {
-        //Armo un objeto para responder
-        res.send({validar: true})
-    }
-    else{
-        res.send({validar:false})    
-    
-    }
+     res.send({validar: true})
 
 })
 
