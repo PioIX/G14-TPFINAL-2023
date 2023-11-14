@@ -108,6 +108,10 @@ async function guardarBarco(data) {
 }
 
 
+ guardarBarco(data)
+
+
+}
 
 
 
