@@ -191,6 +191,7 @@ var jugadores = {
 
 
 
+<<<<<<< Updated upstream
 
 app.post("/prep", async (req, res) => {
   console.log("POST /prep:" ,req.body)
@@ -198,6 +199,17 @@ app.post("/prep", async (req, res) => {
   MySQL.realizarQuery (`UPDATE Partidas 
   SET J1B${req.body.barco} = "${req.body.casilla}"
   WHERE NOT ID_Partida = "null"
+=======
+app.post("/guardarBarco", async (req, res)) => {
+  console.log("post /guardarBarco");
+  console.log(req.body)
+  
+  res.send(null);
+
+  MySQL.realizarQuery (`UPDATE tabla
+  SET J1B1 = (${objeto.casilla}) , J1B2 = (${objeto.casilla})
+  WHERE 
+>>>>>>> Stashed changes
   ;
   `)
   let respuesta = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE J1B${req.body.barco} = "${req.body.casilla}" `);
@@ -212,7 +224,11 @@ app.post("/prep", async (req, res) => {
     
     }
 
+<<<<<<< Updated upstream
 })
+=======
+}
+>>>>>>> Stashed changes
 
 
 app.post("/ataque", async (req, res) => {
