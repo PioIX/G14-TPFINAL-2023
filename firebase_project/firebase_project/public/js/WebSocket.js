@@ -17,6 +17,7 @@ function funcionPrueba() {
 
 function unirseSala() {
     socket.emit("unirme-sala",{mensaje:"uniendose a la sala"} )
+    location.href = '/ata'
 }
 
 

@@ -43,7 +43,7 @@ const sessionMiddleware = session({
     saveUninitialized: false,
 });
 
-let cant=0
+
 
 
 
@@ -87,7 +87,7 @@ app.post("/register", async function (req, res){
     console.log(email)
     //console.log(authService)
     //console.log(userCredential)
-    console.log(userCredential.user.uid)
+    console.log("userID", userCredential.user.uid)
     req.session.uid = userCredential.user.uid
     await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES ("${userCredential.user.uid}", "${email}", "${password}")`)
     res.render("preparacionjuego", {
@@ -144,6 +144,7 @@ app.post("/login", async (req, res) => {
     
     let userCredential = await authService.loginUser(auth, { email, password });
     req.session.mail = email
+    console.log("userID", userCredential.user.uid)
     req.session.uid = userCredential.user.uid
     if (email=="SoyAdmin@admin.com" && password=="SoyAdmin"){
       res.render("admin", {
@@ -196,7 +197,10 @@ app.post("/prep", async (req, res) => {
   console.log("POST /prep:" ,req.body)
   MySQL.realizarQuery (`UPDATE Partidas SET J1B${req.body.barco} = "${req.body.casilla}" WHERE NOT ID_Partida = "null";`)
   
+
+
   res.send({validar: true})
+
 
 })
 
@@ -224,6 +228,7 @@ app.get('/admin', function(req, res)
 
 
 
+let cant = 0
 
 app.put('/admin', function(req, res)
 {
@@ -242,15 +247,18 @@ io.on("connection", (socket) => {
 
   
   socket.on("unirme-sala", (data) =>{
+    console.log("Pase por aca")
     if (cant==0){
       console.log("Jugador 1")
       jugadores.jugador1 = req.session.uid
+      cant = 1
     }
     else if (cant==1){
       console.log("Jugador 2")
       jugadores.jugador2 = req.session.uid
+      cant = 2
     }
-    cant =cant++
+    
     if (cant <2) {
       console.log("CANT < 2", data)
     socket.join("nombreSala")
@@ -269,3 +277,7 @@ io.on("connection", (socket) => {
 
 
 
+/*
+Yo hago un pedido como jugador 1
+Osea q mi req.session.uid va a ser la guardada en jugadores.jugador1
+*/ 
