@@ -43,7 +43,7 @@ const sessionMiddleware = session({
     saveUninitialized: false,
 });
 
-let cant=0
+
 
 
 
@@ -237,8 +237,8 @@ app.get('/admin', function(req, res)
 });
 
 
-app.get()
 
+let cant = 0
 
 app.put('/admin', function(req, res)
 {
@@ -260,12 +260,14 @@ io.on("connection", (socket) => {
     if (cant==0){
       console.log("Jugador 1")
       jugadores.jugador1 = req.session.uid
+      cant = 1
     }
     else if (cant==1){
       console.log("Jugador 2")
       jugadores.jugador2 = req.session.uid
+      cant = 2
     }
-    cant =cant++
+    
     if (cant <2) {
       console.log("CANT < 2", data)
     socket.join("nombreSala")
