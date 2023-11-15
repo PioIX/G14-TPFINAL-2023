@@ -86,19 +86,15 @@ async function guardarBarco(data) {
       body: JSON.stringify(data),
     });
 
-
-   
     
-
     const resultG = await responseG.json();
     console.log("Success:", resultG);
 
     if (resultG.validar == false) {
-      alert("Los datos son incorrectos")
-    } else {
-      //Envio el formularia desde dom para cambiar de pagina
-      //Podria usar tambien un changeScreen()
-      document.getElementById("form4").submit()
+      alert("Los datos son incorrectos")  
+    }
+    else {
+      unirseSala()
     }
 
   } catch (error) {
