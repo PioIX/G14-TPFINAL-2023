@@ -194,23 +194,9 @@ var jugadores = {
 
 app.post("/prep", async (req, res) => {
   console.log("POST /prep:" ,req.body)
+  MySQL.realizarQuery (`UPDATE Partidas SET J1B${req.body.barco} = "${req.body.casilla}" WHERE NOT ID_Partida = "null";`)
   
-  MySQL.realizarQuery (`UPDATE Partidas 
-  SET J1B${req.body.barco} = "${req.body.casilla}"
-  WHERE NOT ID_Partida = "null"
-  ;
-  `)
-  let respuesta = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE J1B${req.body.barco} = "${req.body.casilla}" `);
-  console.log("respues:",respuesta)
-    //Chequeo el largo del vector a ver si tiene datos
-    if (respuesta.length > 0) {
-        //Armo un objeto para responder
-        res.send({validar: true})
-    }
-    else{
-        res.send({validar:false})    
-    
-    }
+  res.send({validar: true})
 
 })
 
@@ -237,7 +223,6 @@ app.get('/admin', function(req, res)
 });
 
 
-app.get()
 
 
 app.put('/admin', function(req, res)
