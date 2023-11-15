@@ -258,6 +258,7 @@ io.on("connection", (socket) => {
 
   
   socket.on("unirme-sala", (data) =>{
+    console.log("Pase por aca")
     if (cant==0){
       console.log("Jugador 1")
       jugadores.jugador1 = req.session.uid
@@ -287,3 +288,7 @@ io.on("connection", (socket) => {
 
 
 
+/*
+Yo hago un pedido como jugador 1
+Osea q mi req.session.uid va a ser la guardada en jugadores.jugador1
+*/ 

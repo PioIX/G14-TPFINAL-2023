@@ -87,7 +87,7 @@ async function guardarBarco(data) {
     });
 
 
-    unirseSala()
+   
     
 
     const resultG = await responseG.json();
@@ -125,39 +125,10 @@ let posicionatacada = -1
 
 
 
-function ataque(){
+function ataque(posicion){
   let posicionatacada = document.getElementById(posicion.id) 
   console.log("posicion atacada:",posicion.id)
-  
-  
-  if (result.posiciones = posicionatacada){
-    console.log("tocado")
 
-  }
-  else{
-    console.log("agua")
-
-  }
-  
-  
+  //socket emit de la posicion
 } 
-
-
-
-async function ataque() {   
-
-  try {
-    const response = await fetch("/ataque", {
-      method: "GET", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(),
-    });
-    
-    
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
 
