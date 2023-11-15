@@ -87,7 +87,7 @@ app.post("/register", async function (req, res){
     console.log(email)
     //console.log(authService)
     //console.log(userCredential)
-    console.log(userCredential.user.uid)
+    console.log("userID", userCredential.user.uid)
     req.session.uid = userCredential.user.uid
     await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES ("${userCredential.user.uid}", "${email}", "${password}")`)
     res.render("preparacionjuego", {
@@ -144,6 +144,7 @@ app.post("/login", async (req, res) => {
     
     let userCredential = await authService.loginUser(auth, { email, password });
     req.session.mail = email
+    console.log("userID", userCredential.user.uid)
     req.session.uid = userCredential.user.uid
     if (email=="SoyAdmin@admin.com" && password=="SoyAdmin"){
       res.render("admin", {
