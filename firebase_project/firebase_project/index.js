@@ -219,8 +219,13 @@ var jugadores = {
 
 app.post("/prep", async (req, res) => {
   console.log("POST /prep:" ,req.body)
-  MySQL.realizarQuery (`UPDATE Partidas SET J1B${req.body.barco} = "${req.body.casilla}" WHERE NOT ID_Partida = "null";`)
-  
+  if (req.session.uid == jugadores1.jugadore1) {
+    MySQL.realizarQuery (`UPDATE Partidas SET J1B${req.body.barco} = "${req.body.casilla}" WHERE NOT ID_Partida = "null";`)
+  }
+  else if(req.session.uid == jugadores1.jugadore2){
+    MySQL.realizarQuery (`UPDATE Partidas SET J2B${req.body.barco} = "${req.body.casilla}" WHERE NOT ID_Partida = "null";`)
+  }
+
 
 
   res.send({validar: true})
