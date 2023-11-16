@@ -93,9 +93,7 @@ async function guardarBarco(data) {
     if (resultG.validar == false) {
       alert("Los datos son incorrectos")  
     }
-    else {
-      unirseSala()
-    }
+  
 
   } catch (error) {
     console.error("Error:", error);

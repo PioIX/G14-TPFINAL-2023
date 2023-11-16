@@ -116,6 +116,17 @@ app.get("/ata", (req, res) => {
   res.render("ataquejuego", { player: player });
 });
 
+app.get("/prep", (req, res) =>{
+  let players = 0;
+  id = req.session.uid;
+  if(jugadores1.jugadore1 == id){
+    players = 1;
+  }else if(jugadores1.jugadore2 == id)
+    players = 2;
+  console.log("JUGADORES ", jugadores1, "UID ", req.session.uid)
+  res.render("preparacionjuego", { players: players });
+})
+
 app.get("/prep", (req, res) => {
   res.render("preparacionjuego");
 });
@@ -136,6 +147,12 @@ app.get("/ata", (req, res) =>{
   res.render("ataquejuego")
 });
 
+let cant1 = 0
+
+var jugadores1 = {
+  jugadore1: 0,
+  jugadore2: 0
+};
 
 app.post("/login", async (req, res) => {
   const { email, password } = {email: req.body.email, password: req.body.password};
@@ -152,9 +169,16 @@ app.post("/login", async (req, res) => {
       });
     } else {
       res.redirect("/prep")
-     /* res.render("preparacionjuego", {
-        message: "Inicio de sesion exitoso",
-      });*/
+      if (cant1==0){
+        console.log("Jugador 1")
+        jugadores1.jugadore1 = req.session.uid
+        cant1 = 1
+      }
+      else {
+        console.log("Jugador 2")
+        jugadores1.jugadore2 = req.session.uid
+        cant1 = 2
+      }
     }
   } catch (error) {
     console.error("Error en el inicio de sesión:", error);
@@ -239,6 +263,7 @@ app.put('/admin', function(req, res)
 // server-side
 io.on("connection", (socket) => {
   const req = socket.request;
+  req.session.save();
   console.log(socket.id); 
   socket.on("mensaje-prueba", (data) => {
     console.log(data);
