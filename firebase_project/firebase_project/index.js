@@ -107,26 +107,29 @@ app.get("/login", (req, res) => {
 
 app.get("/ata", (req, res) => {
   //eN SESSION VAS A GUARDAR QUIEN ES P1 Y QUIEN ES P2
-  let player = 0;
-  if(jugadores.jugador1 === req.session.uid)
+  //let player = 0;
+  /*if(jugadores.jugador1 === req.session.uid)
     player = 1;
   else if(jugadores.jugador2 === req.session.uid)
     player = 2;
-  console.log("JUGADORES ", jugadores, "UID ", req.session.uid)
-  res.render("ataquejuego", { player: player });
+  console.log("JUGADORES ", jugadores, "UID ", req.session.uid)*/
+  res.render("ataquejuego");
 });
 
-/*app.get("/prep", (req, res) =>{
+app.get("/prep", (req, res) =>{
   let players = 0;
   id = req.session.uid;
   if(jugadores1.jugadore1 == id){
-    players = 1;
+    req.session.players = 1;
+    req.session.save()
   }else if(jugadores1.jugadore2 == id)
-    players = 2;
+    req.session.players = 2;
+    req.session.save()
   console.log("JUGADORES ", jugadores1, "UID ", req.session.uid)
   res.render("preparacionjuego", { players: players });
+
 })
-*/
+
 app.get("/prep", (req, res) => {
   res.render("preparacionjuego");
 });
@@ -163,6 +166,7 @@ app.post("/login", async (req, res) => {
     req.session.mail = email
     console.log("userID", userCredential.user.uid)
     req.session.uid = userCredential.user.uid
+    req.session.save()
     if (email=="SoyAdmin@admin.com" && password=="SoyAdmin"){
       res.render("admin", {
         message: "Se redirige a admin",
@@ -234,17 +238,7 @@ app.post("/prep", async (req, res) => {
 })
 
 
-/*app.get("/ataque", async (req, res) => {
-  console.log("get /ataque");
-  console.log(req.body)
-  
-  let posiA = await MySQL.realizarQuery(`SELECT ${req.body.casilla} WHERE `)
-  
-  
-  res.send(null);
-  
-});
-*/
+
 
 
 
@@ -279,14 +273,12 @@ io.on("connection", (socket) => {
   
   socket.on("unirme-sala", (data) =>{
     console.log("Pase por aca")
-    if (cant==0){
+    if (req.session.players == 1){
       console.log("Jugador 1")
-      jugadores.jugador1 = req.session.uid
       cant = 1
     }
-    else if (cant==1){
+    else if (req.session.players == 2){
       console.log("Jugador 2")
-      jugadores.jugador2 = req.session.uid
       cant = 2
     }
     

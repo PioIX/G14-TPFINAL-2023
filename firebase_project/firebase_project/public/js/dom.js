@@ -72,9 +72,7 @@ function casilla(posicion) {
   }
 }
 
-function ubi(posicion, id){
 
-}
 
 function casilla1(posicion) {
   // Obtener el ID del elemento clickeado en la tabla tablaprep
