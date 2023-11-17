@@ -74,7 +74,7 @@ function casilla(posicion) {
 
 
 
-function casilla1(posicion) {
+/*function casilla1(posicion) {
   // Obtener el ID del elemento clickeado en la tabla tablaprep
   var id = posicion.id.getElementById(tablaprep) ;
 
@@ -84,6 +84,10 @@ function casilla1(posicion) {
   // Cambiar el color de fondo del elemento seleccionado en tablata
   elementoTablata.classList.add("barcoubicadopropio");
 }
+*/
+
+
+
 
 async function importa() {   
 
@@ -171,8 +175,21 @@ let posicionatacada = -1
 
 function ataque(posicion){
   let posicionatacada = document.getElementById(posicion.id)
-  console.log("posicion atacada:",posicion.id)
-  //if posicionatacada = 
-  //socket emit de la posicion
-} 
+  if (id == 1) {
+    console.log("posicion atacada:",posicion.id)
+    var atacado = document.getElementById(resultG.bdd[0].J2B1);
+    if (posicionatacada == J2B1) {
+      atacado.classList.add("hitcasillaenemiga");
+    }
+    else {
+      atacado.classList.add("hitaguacasilla");
+    }
 
+
+
+
+    
+  } else if (id == 2) {
+
+  }
+}

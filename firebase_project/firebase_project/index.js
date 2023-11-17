@@ -116,7 +116,7 @@ app.get("/ata", (req, res) => {
 
 
   //darle el valor
-  res.render("ataquejuego" );
+  res.render("ataquejuego" , { players: req.session.players });
 });
 
 app.get("/prep", (req, res) =>{
