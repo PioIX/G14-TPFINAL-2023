@@ -74,6 +74,61 @@ function casilla(posicion) {
 
 
 
+/*function casilla1(posicion) {
+  // Obtener el ID del elemento clickeado en la tabla tablaprep
+  var id = posicion.id.getElementById(tablaprep) ;
+
+  // Seleccionar el elemento correspondiente en la tabla tablata
+  var elementoTablata = document.getElementById(id.replace("P", "R"));
+
+  // Cambiar el color de fondo del elemento seleccionado en tablata
+  elementoTablata.classList.add("barcoubicadopropio");
+}
+*/
+
+
+
+
+async function importa() {   
+
+  try {
+    const responseG = await fetch("/traerbarco", {
+      method: "GET", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let id = document.getElementById("playerId").value;
+    const resultG = await responseG.json();
+    console.log("Success:", resultG);
+    //Pintar la casilla contenida dentro de J1B1
+    if (id == 1) {
+      var elementoTablata = document.getElementById(resultG.bdd[0].J1B1);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J1B2);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J1B3);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J1B4);
+      elementoTablata.classList.add("barcoubicadopropio");
+    } else if (id == 2) {
+      var elementoTablata = document.getElementById(resultG.bdd[0].J2B1);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J2B2);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J2B3);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J2B4);
+      elementoTablata.classList.add("barcoubicadopropio");
+    }
+
+  } catch (error) {
+    console.error("Error:", error);
+  }
+
+}
+
 async function guardarBarco(data) {   
 
   try {
@@ -93,9 +148,7 @@ async function guardarBarco(data) {
     if (resultG.validar == false) {
       alert("Los datos son incorrectos")  
     }
-    else {
-      unirseSala()
-    }
+  
 
   } catch (error) {
     console.error("Error:", error);
@@ -120,11 +173,23 @@ let posicionatacada = -1
 
 
 
-
 function ataque(posicion){
-  let posicionatacada = document.getElementById(posicion.id) 
-  console.log("posicion atacada:",posicion.id)
+  let posicionatacada = document.getElementById(posicion.id)
+  if (id == 1) {
+    console.log("posicion atacada:",posicion.id)
+    var atacado = document.getElementById(resultG.bdd[0].J2B1);
+    if (posicionatacada == J2B1) {
+      atacado.classList.add("hitcasillaenemiga");
+    }
+    else {
+      atacado.classList.add("hitaguacasilla");
+    }
 
-  //socket emit de la posicion
-} 
 
+
+
+    
+  } else if (id == 2) {
+
+  }
+}
