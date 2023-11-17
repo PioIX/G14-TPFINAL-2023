@@ -86,7 +86,7 @@ function casilla(posicion) {
 }
 */
 
-
+var baseBarcos = {};
 
 
 async function importa() {   
@@ -101,6 +101,7 @@ async function importa() {
 
     let id = document.getElementById("playerId").value;
     const resultG = await responseG.json();
+    baseBarcos = resultG;
     console.log("Success:", resultG);
     //Pintar la casilla contenida dentro de J1B1
     if (id == 1) {
@@ -173,23 +174,3 @@ let posicionatacada = -1
 
 
 
-function ataque(posicion){
-  let posicionatacada = document.getElementById(posicion.id)
-  if (id == 1) {
-    console.log("posicion atacada:",posicion.id)
-    var atacado = document.getElementById(resultG.bdd[0].J2B1);
-    if (posicionatacada == J2B1) {
-      atacado.classList.add("hitcasillaenemiga");
-    }
-    else {
-      atacado.classList.add("hitaguacasilla");
-    }
-
-
-
-
-    
-  } else if (id == 2) {
-
-  }
-}

@@ -298,6 +298,13 @@ io.on("connection", (socket) => {
   socket.on("nombreSala",()  => {
     
   })
+  
+  socket.on("pego", (data) =>  
+    io.emit("verAtaque", {mensaje: "Fuego"}))
+  
+  socket.on("agua", (data) =>  
+    io.emit("dioagua", {mensaje: "agua"}))
+  
 });
 
 
