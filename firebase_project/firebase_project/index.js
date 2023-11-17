@@ -113,7 +113,10 @@ app.get("/ata", (req, res) => {
   else if(jugadores.jugador2 === req.session.uid)
     player = 2;
   console.log("JUGADORES ", jugadores, "UID ", req.session.uid)*/
-  res.render("ataquejuego");
+
+
+  //darle el valor
+  res.render("ataquejuego" );
 });
 
 app.get("/prep", (req, res) =>{
@@ -126,7 +129,7 @@ app.get("/prep", (req, res) =>{
     req.session.players = 2;
     req.session.save()
   console.log("JUGADORES ", jugadores1, "UID ", req.session.uid)
-  res.render("preparacionjuego", { players: players });
+  res.render("preparacionjuego", { players: req.session.players });
 
 })
 
