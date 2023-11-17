@@ -53,9 +53,7 @@ function ataque(posicion){
     if (pego == false) {
         posicionatacada.classList.add("hitaguacasilla");
         socket.emit("agua")
+        socket.emit()
     }
     
-  }
-  
-
-//movimiento mandar a la sala y a la base de datos
+}

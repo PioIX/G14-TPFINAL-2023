@@ -307,8 +307,24 @@ io.on("connection", (socket) => {
   
 });
 
+/*app.get("/prep", (req, res) =>{
+  let players = 0;
+  id = req.session.uid;
+  if(jugadores1.jugadore1 == id){
+    req.session.players = 1;
+    req.session.save()
+  }else if(jugadores1.jugadore2 == id)
+    req.session.players = 2;
+    req.session.save()
+  console.log("JUGADORES ", jugadores1, "UID ", req.session.uid)
+  res.render("preparacionjuego", { players: req.session.players });
 
+})
+*/
 
+/*let turno = o
+id = req.session.uid;
+*/
 
 /*
 Yo hago un pedido como jugador 1
