@@ -158,9 +158,6 @@ async function guardarBarco(data) {
 }
 
 
-
-
-
 function imagen(posicion) {
 console.log(posicion)
 imagenSeleccionada = posicion.id

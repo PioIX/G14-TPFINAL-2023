@@ -300,10 +300,10 @@ io.on("connection", (socket) => {
   })
   
   socket.on("pego", (data) =>  
-    io.emit("verAtaque", {mensaje: "Fuego"}))
+    io.emit("verAtaque", {lugar: data.lugar, jugador: data.jugador, mensaje: "Fuego"}))
   
   socket.on("agua", (data) =>  
-    io.emit("dioagua", {mensaje: "agua"}))
+    io.emit("dioagua", {lugar: data.lugar, jugador: data.jugador, mensaje: "agua"}))
   
 });
 
