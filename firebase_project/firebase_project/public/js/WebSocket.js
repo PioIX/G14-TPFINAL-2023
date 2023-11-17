@@ -42,20 +42,38 @@ function ataque(posicion){
     for(let i = 1; i <= 4; i++) {
       console.log(posAtacada == baseBarcos.bdd[0][`J${jugador}B${i}`].replace("P", ""), posAtacada, baseBarcos.bdd[0][`J${jugador}B${i}`].replace("P", ""))
       if(posAtacada == baseBarcos.bdd[0][`J${jugador}B${i}`].replace("P", "")) {
-        console.log("PEGUE", posicionatacada, baseBarcos.bdd[0][`J${jugador}B${i}`])
+        // console.log("PEGUE", posicionatacada, baseBarcos.bdd[0][`J${jugador}B${i}`])
         posicionatacada.classList.add("hitcasillaenemiga");
         pego = true;
         i = 5;
-        socket.emit("pego") 
+        socket.emit("pego", {lugar: posicion.id, jugador: playerId.value})
+          socket.on('verAtaque', data =>{
+            console.log("El usuario:", data.jugador, "Pego en:", data.lugar)
+              render(data)
+          }) 
         return;      
       }
     }
     if (pego == false) {
         posicionatacada.classList.add("hitaguacasilla");
-        socket.emit("agua")
+        socket.emit("agua", {lugar: posicion.id, jugador: playerId.value})
+        socket.on('dioagua', data =>{
+          console.log("El usuario:", data.jugador, "dió agua en:", data.lugar)
+            render(data)
+        }) 
     }
     
   }
   
 
 //movimiento mandar a la sala y a la base de datos
+function render(data){
+  if (data.jugador == 1){
+    document.getElementById("turno").innerHTML = "Es turno del jugador 2"
+  } else if (data.jugador == 2){
+    document.getElementById("turno").innerHTML = "Es turno del jugador 1"
+  }
+
+}
+  
+ 
