@@ -116,7 +116,7 @@ app.get("/ata", (req, res) => {
   res.render("ataquejuego", { player: player });
 });
 
-app.get("/prep", (req, res) =>{
+/*app.get("/prep", (req, res) =>{
   let players = 0;
   id = req.session.uid;
   if(jugadores1.jugadore1 == id){
@@ -126,7 +126,7 @@ app.get("/prep", (req, res) =>{
   console.log("JUGADORES ", jugadores1, "UID ", req.session.uid)
   res.render("preparacionjuego", { players: players });
 })
-
+*/
 app.get("/prep", (req, res) => {
   res.render("preparacionjuego");
 });
@@ -234,16 +234,17 @@ app.post("/prep", async (req, res) => {
 })
 
 
-app.post("/ataque", async (req, res) => {
-  console.log("post /ataque");
+/*app.get("/ataque", async (req, res) => {
+  console.log("get /ataque");
   console.log(req.body)
   
+  let posiA = await MySQL.realizarQuery(`SELECT ${req.body.casilla} WHERE `)
+  
+  
   res.send(null);
-  /*MySQL.realizarQuery (`Insert into result(posiciones)
-  values(${req.body})`)
-  */
+  
 });
-
+*/
 
 
 
@@ -310,4 +311,12 @@ io.on("connection", (socket) => {
 /*
 Yo hago un pedido como jugador 1
 Osea q mi req.session.uid va a ser la guardada en jugadores.jugador1
-*/ 
+*/
+ 
+
+app.get('/traerbarco', async function(req, res)
+{
+    let posi = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE NOT ID_Partida = "null";`) 
+    console.log("Soy un pedido GET", req.query); 
+    res.send({bdd: posi});
+});

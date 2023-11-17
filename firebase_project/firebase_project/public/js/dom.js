@@ -72,7 +72,60 @@ function casilla(posicion) {
   }
 }
 
+function ubi(posicion, id){
 
+}
+
+function casilla1(posicion) {
+  // Obtener el ID del elemento clickeado en la tabla tablaprep
+  var id = posicion.id.getElementById(tablaprep) ;
+
+  // Seleccionar el elemento correspondiente en la tabla tablata
+  var elementoTablata = document.getElementById(id.replace("P", "R"));
+
+  // Cambiar el color de fondo del elemento seleccionado en tablata
+  elementoTablata.classList.add("barcoubicadopropio");
+}
+
+async function importa() {   
+
+  try {
+    const responseG = await fetch("/traerbarco", {
+      method: "GET", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    let id = document.getElementById("playerId").value;
+    const resultG = await responseG.json();
+    console.log("Success:", resultG);
+    //Pintar la casilla contenida dentro de J1B1
+    if (id == 1) {
+      var elementoTablata = document.getElementById(resultG.bdd[0].J1B1);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J1B2);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J1B3);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J1B4);
+      elementoTablata.classList.add("barcoubicadopropio");
+    } else if (id == 2) {
+      var elementoTablata = document.getElementById(resultG.bdd[0].J2B1);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J2B2);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J2B3);
+      elementoTablata.classList.add("barcoubicadopropio");
+      var elementoTablata = document.getElementById(resultG.bdd[0].J2B4);
+      elementoTablata.classList.add("barcoubicadopropio");
+    }
+
+  } catch (error) {
+    console.error("Error:", error);
+  }
+
+}
 
 async function guardarBarco(data) {   
 
@@ -118,11 +171,10 @@ let posicionatacada = -1
 
 
 
-
 function ataque(posicion){
-  let posicionatacada = document.getElementById(posicion.id) 
+  let posicionatacada = document.getElementById(posicion.id)
   console.log("posicion atacada:",posicion.id)
-
+  //if posicionatacada = 
   //socket emit de la posicion
 } 
 
