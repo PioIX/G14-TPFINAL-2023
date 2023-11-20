@@ -27,6 +27,12 @@ socket.on("dioagua", data =>
     alert(data.mensaje)
 )
 
+socket.on("final", data =>
+    alert(data.mensaje)
+)
+
+var baseBarcos = {};
+var barcosAtacados = [];
 function ataque(posicion){
     let posicionatacada = document.getElementById(posicion.id)
     let jugador = document.getElementById("playerId").value;
@@ -47,13 +53,22 @@ function ataque(posicion){
         pego = true;
         i = 5;
         socket.emit("pego") 
+        barcosAtacados.push(posAtacada)
+        console.log(barcosAtacados)
+        if (barcosAtacados.length == 4) {
+          socket.emit("fin")
+          
+        }
+        
         return;      
+        
       }
     }
     if (pego == false) {
         posicionatacada.classList.add("hitaguacasilla");
         socket.emit("agua")
-        socket.emit()
     }
     
+    
 }
+

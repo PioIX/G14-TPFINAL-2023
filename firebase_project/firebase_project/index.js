@@ -243,7 +243,10 @@ app.post("/prep", async (req, res) => {
 
 
 
-
+app.get('/fin', function (req, res) 
+{
+  res.render("fin");
+})
 
 
 
@@ -302,10 +305,15 @@ io.on("connection", (socket) => {
   socket.on("pego", (data) =>  
     io.emit("verAtaque", {mensaje: "Fuego"}))
   
+  
   socket.on("agua", (data) =>  
     io.emit("dioagua", {mensaje: "agua"}))
-  
+ 
+  socket.on("fin", (data) =>
+    io.emit("final", {mensaje: "Fin del juego"})
+  )
 });
+
 
 /*app.get("/prep", (req, res) =>{
   let players = 0;

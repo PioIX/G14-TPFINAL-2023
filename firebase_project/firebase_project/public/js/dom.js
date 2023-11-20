@@ -86,8 +86,6 @@ function casilla(posicion) {
 }
 */
 
-var baseBarcos = {};
-
 
 async function importa() {   
 
