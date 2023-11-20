@@ -27,6 +27,12 @@ socket.on("dioagua", data =>
     alert(data.mensaje)
 )
 
+socket.on("final", data =>
+    alert(data.mensaje)
+)
+
+var baseBarcos = {};
+var barcosAtacados = [];
 function ataque(posicion){
     let posicionatacada = document.getElementById(posicion.id)
     let jugador = document.getElementById("playerId").value;
@@ -46,12 +52,18 @@ function ataque(posicion){
         posicionatacada.classList.add("hitcasillaenemiga");
         pego = true;
         i = 5;
-        socket.emit("pego", {lugar: posicion.id, jugador: playerId.value})
-          socket.on('verAtaque', data =>{
-            console.log("El usuario:", data.jugador, "Pego en:", data.lugar)
-              render(data)
-          }) 
+
+        socket.emit("pego") 
+        barcosAtacados.push(posAtacada)
+        console.log(barcosAtacados)
+        if (barcosAtacados.length == 4) {
+          socket.emit("fin")
+          
+        }
+        
+
         return;      
+        
       }
     }
     if (pego == false) {
@@ -63,9 +75,11 @@ function ataque(posicion){
         }) 
     }
     
-  }
-  
+    
+}
 
+
+=======
 //movimiento mandar a la sala y a la base de datos
 function render(data){
   if (data.jugador == 1){
@@ -77,3 +91,4 @@ function render(data){
 }
   
  
+
