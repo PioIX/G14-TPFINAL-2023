@@ -303,7 +303,7 @@ io.on("connection", (socket) => {
   })
   
   socket.on("pego", (data) =>  
-    io.emit("verAtaque", {lugar: data.lugar, jugador: data.jugador, mensaje: "Fuego"}))
+    io.emit("verAtaque",  {mensaje: "Fuego"}))
   
   
   socket.on("agua", (data) =>  
@@ -314,7 +314,7 @@ io.on("connection", (socket) => {
     io.emit("final", {mensaje: "Fin del juego"})
   )
 
-
+})
 
 /*app.get("/prep", (req, res) =>{
   let players = 0;

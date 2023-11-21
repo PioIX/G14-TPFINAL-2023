@@ -79,7 +79,7 @@ function ataque(posicion){
 }
 
 
-=======
+
 //movimiento mandar a la sala y a la base de datos
 function render(data){
   if (data.jugador == 1){
