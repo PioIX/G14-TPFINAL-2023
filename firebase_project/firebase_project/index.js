@@ -298,51 +298,27 @@ io.on("connection", (socket) => {
     }
   })
 
-  socket.on("nombreSala",()  => {
+  // socket.on("nombreSala",()  => {
     
-  })
+  // })
   
-  socket.on("pego", (data) =>  
-    io.emit("verAtaque", {lugar: data.lugar, jugador: data.jugador, mensaje: "Fuego"}))
+  socket.on("pego", (data) =>{
+    io.emit("verAtaque", {lugar: data.lugar, jugador: data.jugador, mensaje: "Fuego"})
+  });
+   
   
-  
-  socket.on("agua", (data) =>  
+  socket.on("agua", (data) =>{
+    io.emit("dioagua",{lugar: data.lugar, jugador: data.jugador, mensaje: "Agua"})
+  });
+   
 
-    io.emit("dioagua", {mensaje: "agua"}))
- 
-  socket.on("fin", (data) =>
+  
+  socket.on("fin", (data) =>{
     io.emit("final", {mensaje: "Fin del juego"})
-  )
-
-
-
-/*app.get("/prep", (req, res) =>{
-  let players = 0;
-  id = req.session.uid;
-  if(jugadores1.jugadore1 == id){
-    req.session.players = 1;
-    req.session.save()
-  }else if(jugadores1.jugadore2 == id)
-    req.session.players = 2;
-    req.session.save()
-  console.log("JUGADORES ", jugadores1, "UID ", req.session.uid)
-  res.render("preparacionjuego", { players: req.session.players });
-
-})
-*/
-
-/*let turno = o
-id = req.session.uid;
-*/
-
-/*
-Yo hago un pedido como jugador 1
-Osea q mi req.session.uid va a ser la guardada en jugadores.jugador1
-*/
+  });
+});    
  
-
-app.get('/traerbarco', async function(req, res)
-{
+app.get('/traerbarco', async function(req, res){
     let posi = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE NOT ID_Partida = "null";`) 
     console.log("Soy un pedido GET", req.query); 
     res.send({bdd: posi});

@@ -16,7 +16,7 @@ function funcionPrueba() {
 
 
 function unirseSala() {
-    socket.emit("unirme-sala",{mensaje:"uniendose a la sala"} )
+    socket.emit('unirme-sala',{mensaje:"uniendose a la sala"} )
     location.href = '/ata'
 }
 
@@ -52,8 +52,11 @@ function ataque(posicion){
         posicionatacada.classList.add("hitcasillaenemiga");
         pego = true;
         i = 5;
-
-        socket.emit("pego") 
+        socket.emit("pego", {lugar: posicion.id, jugador: playerId.value})
+        socket.on('verAtaque', data =>{
+          console.log("El usuario:", data.jugador, "dió fuego en:", data.lugar)
+          render(data)
+        })  
         barcosAtacados.push(posAtacada)
         console.log(barcosAtacados)
         if (barcosAtacados.length == 4) {
@@ -61,7 +64,6 @@ function ataque(posicion){
           
         }
         
-
         return;      
         
       }
@@ -71,7 +73,7 @@ function ataque(posicion){
         socket.emit("agua", {lugar: posicion.id, jugador: playerId.value})
         socket.on('dioagua', data =>{
           console.log("El usuario:", data.jugador, "dió agua en:", data.lugar)
-            render(data)
+          render(data)
         }) 
     }
     
@@ -79,13 +81,13 @@ function ataque(posicion){
 }
 
 
-=======
+
 //movimiento mandar a la sala y a la base de datos
 function render(data){
   if (data.jugador == 1){
-    document.getElementById("turno").innerHTML = "Es turno del jugador 2"
+    document.getElementById("turnos").innerHTML = "Es turno del jugador 2"
   } else if (data.jugador == 2){
-    document.getElementById("turno").innerHTML = "Es turno del jugador 1"
+    document.getElementById("turnos").innerHTML = "Es turno del jugador 1"
   }
 
 }
