@@ -9,6 +9,8 @@ socket.on("mensaje-servidor", (data) => {
     console.log(socket.id);
 });
 
+
+
 function funcionPrueba() {
     socket.emit("mensaje-prueba",{mensaje: "hola"})
 }
@@ -31,9 +33,10 @@ socket.on("dioagua", data =>
     alert(data.mensaje)
 )
 
-socket.on("final", data =>
-    alert(data.mensaje)
-)
+socket.on("final", data =>{
+  console.log("termino")
+  finJuego()
+})
 
 var baseBarcos = {};
 var barcosAtacados = [];

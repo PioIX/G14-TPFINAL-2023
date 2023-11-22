@@ -89,6 +89,7 @@ app.post("/register", async function (req, res){
     //console.log(userCredential)
     console.log("userID", userCredential.user.uid)
     req.session.uid = userCredential.user.uid
+    
     await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES ("${userCredential.user.uid}", "${email}", "${password}")`)
     res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
@@ -243,6 +244,7 @@ app.post("/prep", async (req, res) => {
 
 
 
+
 app.get('/fin', function (req, res) 
 {
   res.render("fin");
@@ -312,11 +314,13 @@ io.on("connection", (socket) => {
 
     io.emit("dioagua", {mensaje: "agua"}))
  
-  socket.on("fin", (data) =>
-    io.emit("final", {mensaje: "Fin del juego"})
-  )
-
+  socket.on("fin", (data) => {
+    io.to("nombreSala").emit("final", {mensaje: "Fin del juego"})
+  })
+  
 })
+
+
 
 /*app.get("/prep", (req, res) =>{
   let players = 0;
@@ -347,5 +351,5 @@ app.get('/traerbarco', async function(req, res)
 {
     let posi = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE NOT ID_Partida = "null";`) 
     console.log("Soy un pedido GET", req.query); 
-    res.send({bdd: posi});
+    res.send({bdd: posi}); 
 });

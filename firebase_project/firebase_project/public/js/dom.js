@@ -189,6 +189,8 @@ function finJuego() {
   }
   for (let i = 0; i < editableDiv.length; i++) {
     editableDiv[i].style.display = 'block';
+   
 }
   
 } 
+
