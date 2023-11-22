@@ -13,6 +13,10 @@ function funcionPrueba() {
     socket.emit("mensaje-prueba",{mensaje: "hola"})
 }
 
+function unirseprep() {
+  socket.emit("unirme-prep",{mensaje:"Jugando devuelta"} )
+  location.href = '/prep'
+}
 
 
 function unirseSala() {
@@ -58,7 +62,7 @@ function ataque(posicion){
         console.log(barcosAtacados)
         if (barcosAtacados.length == 4) {
           socket.emit("fin")
-          
+          finJuego();
         }
         
 

@@ -63,17 +63,29 @@
             font-size:22px; 
             border-radius:6px;
         }
+        .h1fin{
+            text-align: center;
+            text-shadow: -1px 0 #414D68, 0 1px #414D68, 1px 0 #414D68, 0 -1px #414D68, -2px 2px 0 #414D68, 2px 2px 0 #414D68, 1px 1px #414D68, 2px 2px #414D68, 3px 3px #414D68, 4px 4px #414D68, 5px 5px #414D68, 6px 6px #414D68, 7px 7px #414D68, 8px 8px #414D68, 9px 9px #414D68;
+            margin-top: 200px;
+            color: rgb(18, 18, 18);
+        }
         .body{
             background-image: url("https://img1.wallspic.com/crops/2/2/8/9/39822/39822-el_agua_de_mar-1920x1080.jpg");
         }
+        .container1 {
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Altura completa de la ventana del navegador */
+ }
     </style>
 </head>
 <body class="body">
     <h1 class="h1juego">Batalla Naval</h1>
     <div class="container">
+    <div class="row">
     <h2 id="jugador">Estas jugando como: Jugador {{players}}</h2>
     <h2 id="turno">Es turno del jugador 1</h2>
-    <div class="row">
     <div class="col">
         <h2 class="h2propio">Tus Barcos</h2>
     <table class="table1" id="tablata">
@@ -371,6 +383,11 @@
     </table>
     </div>
     </div>
+    
+    </div>
+    <div class="div-final" display="none">
+       <h1 class="h1fin"> Fin de la partida</h1> 
+        <button type="button" onclick="unirseprep()"  class="btn btn-primary">Jugar otra vez</button>  
     </div>
 <script>
     importa()

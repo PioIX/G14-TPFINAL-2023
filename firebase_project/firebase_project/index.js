@@ -276,7 +276,9 @@ io.on("connection", (socket) => {
     socket.emit("mensaje-servidor", {mensaje: "chau"})
   });
 
-  
+  socket.on ("unirme-prep", (data) => {
+    console.log("aca estoy")
+  })
   socket.on("unirme-sala", (data) =>{
     console.log("Pase por aca")
     if (req.session.players == 1){
