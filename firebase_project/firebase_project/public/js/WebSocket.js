@@ -60,7 +60,11 @@ function ataque(posicion){
         pego = true;
         i = 5;
 
-        socket.emit("pego") 
+        socket.emit("pego", {lugar: posicion.id, jugador: playerId.value})
+          socket.on('verAtaque', data =>{
+            console.log("El usuario:", data.jugador, "pego en:", data.lugar)
+            render(data)
+          }) 
         barcosAtacados.push(posAtacada)
         console.log(barcosAtacados)
         if (barcosAtacados.length == 4) {

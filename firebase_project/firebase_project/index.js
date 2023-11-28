@@ -307,12 +307,12 @@ io.on("connection", (socket) => {
   })
   
   socket.on("pego", (data) =>  
-    io.emit("verAtaque",  {mensaje: "Fuego"}))
+    io.emit("verAtaque",  {lugar: data.lugar, jugador: data.jugador, mensaje: "Fuego"}))
   
   
   socket.on("agua", (data) =>  
 
-    io.emit("dioagua", {mensaje: "agua"}))
+    io.emit("dioagua", {lugar: data.lugar, jugador:data.jugador, mensaje: "agua"}))
  
   socket.on("fin", (data) => {
     io.to("nombreSala").emit("final", {mensaje: "Fin del juego"})
