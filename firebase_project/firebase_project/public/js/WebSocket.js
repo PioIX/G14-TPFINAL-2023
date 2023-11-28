@@ -90,9 +90,9 @@ function ataque(posicion){
 //movimiento mandar a la sala y a la base de datos
 function render(data){
   if (data.jugador == 1){
-    document.getElementById("turno").innerHTML = "Es turno del jugador 2"
+    document.getElementById("turnos").innerHTML = "Es turno del jugador 2"
   } else if (data.jugador == 2){
-    document.getElementById("turno").innerHTML = "Es turno del jugador 1"
+    document.getElementById("turnos").innerHTML = "Es turno del jugador 1"
   }
 
 }
