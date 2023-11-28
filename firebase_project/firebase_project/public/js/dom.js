@@ -168,4 +168,29 @@ let posicionatacada = -1
 
 
 
+/*function mostrarFinJuego() {
+  const rows = document.getElementsByClassName('row');
+
+  for (let i = 0; i < rows.length; i++) {
+      rows[i].style.display = 'none';
+  }
+
+  const finDelJuego = document.createElement('div');
+  finDelJuego.textContent = 'Fin del juego';
+  document.body.appendChild(finDelJuego);
+}
+*/
+
+function finJuego() {
+  const row = document.getElementsByClassName('row');
+  const editableDiv = document.getElementsByClassName('div-final');
+  for (let i = 0; i < row.length; i++) {
+    row[i].style.display = 'none';
+  }
+  for (let i = 0; i < editableDiv.length; i++) {
+    editableDiv[i].style.display = 'block';
+   
+}
+  
+} 
 

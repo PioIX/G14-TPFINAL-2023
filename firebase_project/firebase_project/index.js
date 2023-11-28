@@ -89,6 +89,7 @@ app.post("/register", async function (req, res){
     //console.log(userCredential)
     console.log("userID", userCredential.user.uid)
     req.session.uid = userCredential.user.uid
+    
     await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES ("${userCredential.user.uid}", "${email}", "${password}")`)
     res.render("preparacionjuego", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
@@ -243,6 +244,7 @@ app.post("/prep", async (req, res) => {
 
 
 
+
 app.get('/fin', function (req, res) 
 {
   res.render("fin");
@@ -276,7 +278,9 @@ io.on("connection", (socket) => {
     socket.emit("mensaje-servidor", {mensaje: "chau"})
   });
 
-  
+  socket.on ("unirme-prep", (data) => {
+    console.log("aca estoy")
+  })
   socket.on("unirme-sala", (data) =>{
     console.log("Pase por aca")
     if (req.session.players == 1){
@@ -300,7 +304,7 @@ io.on("connection", (socket) => {
 
   // socket.on("nombreSala",()  => {
     
-  // })
+
   
   socket.on("pego", (data) =>{
     io.emit("verAtaque", {lugar: data.lugar, jugador: data.jugador, mensaje: "Fuego"})
@@ -310,8 +314,34 @@ io.on("connection", (socket) => {
   socket.on("agua", (data) =>{
     io.emit("dioagua",{lugar: data.lugar, jugador: data.jugador, mensaje: "Agua"})
   });
-   
+  
 
+
+
+/*app.get("/prep", (req, res) =>{
+  let players = 0;
+  id = req.session.uid;
+  if(jugadores1.jugadore1 == id){
+    req.session.players = 1;
+    req.session.save()
+  }else if(jugadores1.jugadore2 == id)
+    req.session.players = 2;
+    req.session.save()
+  console.log("JUGADORES ", jugadores1, "UID ", req.session.uid)
+  res.render("preparacionjuego", { players: req.session.players });
+
+})
+*/
+
+/*let turno = o
+id = req.session.uid;
+*/
+
+/*
+Yo hago un pedido como jugador 1
+Osea q mi req.session.uid va a ser la guardada en jugadores.jugador1
+*/
+=======
   
   socket.on("fin", (data) =>{
     io.emit("final", {mensaje: "Fin del juego"})
@@ -321,5 +351,5 @@ io.on("connection", (socket) => {
 app.get('/traerbarco', async function(req, res){
     let posi = await MySQL.realizarQuery(`SELECT * FROM Partidas WHERE NOT ID_Partida = "null";`) 
     console.log("Soy un pedido GET", req.query); 
-    res.send({bdd: posi});
+    res.send({bdd: posi}); 
 });

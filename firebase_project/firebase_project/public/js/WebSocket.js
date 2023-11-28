@@ -4,15 +4,21 @@ socket.on('connection', socket =>{
     console.log('Nuevo usuario conectado');
 });
 
-socket.on("mensaje-servidor", (data) => {
+socket.on("mensaje-serhttps://github.com/PioIX/G14-TPFINAL-2023/pull/32/conflict?name=firebase_project%252Ffirebase_project%252Fpublic%252Fjs%252FWebSocket.js&ancestor_oid=ee6c2a5615b00d656196f02bfe5044f7a3c647d8&base_oid=179fbccd3b47fcb1f3c453dc7890b6854bad8def&head_oid=626bcdd0cc221472ad08dd445c068caf70611ab6vidor", (data) => {
     console.log(data)
     console.log(socket.id);
 });
+
+
 
 function funcionPrueba() {
     socket.emit("mensaje-prueba",{mensaje: "hola"})
 }
 
+function unirseprep() {
+  socket.emit("unirme-prep",{mensaje:"Jugando devuelta"} )
+  location.href = '/prep'
+}
 
 
 function unirseSala() {
@@ -27,9 +33,10 @@ socket.on("dioagua", data =>
     alert(data.mensaje)
 )
 
-socket.on("final", data =>
-    alert(data.mensaje)
-)
+socket.on("final", data =>{
+  console.log("termino")
+  finJuego()
+})
 
 var baseBarcos = {};
 var barcosAtacados = [];
@@ -61,7 +68,7 @@ function ataque(posicion){
         console.log(barcosAtacados)
         if (barcosAtacados.length == 4) {
           socket.emit("fin")
-          
+          finJuego();
         }
         
         return;      
