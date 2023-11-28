@@ -91,7 +91,7 @@ app.post("/register", async function (req, res){
     req.session.uid = userCredential.user.uid
     
     await MySQL.realizarQuery(`INSERT INTO Users (id_user, email, password) VALUES ("${userCredential.user.uid}", "${email}", "${password}")`)
-    res.render("preparacionjuego", {
+    res.render("login", {
       message: "Registro exitoso. Puedes iniciar sesión ahora.",
     });
   } catch (error) {
@@ -341,8 +341,6 @@ id = req.session.uid;
 Yo hago un pedido como jugador 1
 Osea q mi req.session.uid va a ser la guardada en jugadores.jugador1
 */
-=======
-  
   socket.on("fin", (data) =>{
     io.emit("final", {mensaje: "Fin del juego"})
   });
